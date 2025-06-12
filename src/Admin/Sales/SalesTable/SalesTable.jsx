@@ -1,165 +1,156 @@
-import { useState } from "react";
-import { FaChevronDown, FaBox, FaCheckCircle, FaMotorcycle, FaRedoAlt, FaArrowRight } from "react-icons/fa";
-import styles from "./OrderHistory.module.css";
-import Navbar from "../navbar/Navbar";
-import { useDispatch } from "react-redux";
-import { setReorder } from "../../actions/action";
-import { useNavigate } from "react-router-dom";
-import { fetchUserOrders } from "../../../Api/fetchingData/FetchUserOrders";
-import { useQuery } from "@tanstack/react-query";
-import Loading from "../../../Helper/Loading/Loading";
-import { useQueryClient } from "@tanstack/react-query";
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import styles from './SalesTable.module.css';
+import { useQuery } from '@tanstack/react-query';
+import { fetching_filtred_sales } from '../../../Api/fetchingData/FetchFilteredSales'; 
+import { fetching_sales_statistic } from '../../../Api/fetchingData/FetchSalesStatistic';
+import {
+  TrendingUp,
+  Calendar,
+  Package,
+  Search,
+  ArrowUpRight
+} from 'lucide-react';
 
-const OrderHistory = () => {
-  const { data: orders, isLoading, isError, error } = useQuery({
-    queryKey: ['orders'],
-    queryFn: fetchUserOrders,
+const SalesTable = () => {
+  const { t } = useTranslation();
+
+  const [timeFilter, setTimeFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const { data: sales_statistic, isLoading: isLoadingSales } = useQuery({
+    queryKey: ['sales_statistic'],
+    queryFn: fetching_sales_statistic,
+  });
+
+  const { data: filtred_sales, isLoading: isLoadingStatistic } = useQuery({
+    queryKey: ['sales', timeFilter],
+    queryFn: () => fetching_filtred_sales(timeFilter),
+    keepPreviousData: true, // لتحسين تجربة المستخدم عند تبديل الفلتر
   });
   
-  const [expandedOrder, setExpandedOrder] = useState(null);
-  const [trackingOrder, setTrackingOrder] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('all'); // 'all' or 'completed'
-
-  const queryClient = useQueryClient();
-  const dispatch = useDispatch();
-  const navigator = useNavigate();
-
-  const toggleOrder = (orderId) => setExpandedOrder(expandedOrder === orderId ? null : orderId);
-
-  const handleTrackOrder = (orderId, e) => {
-    e.stopPropagation();
-    setTrackingOrder(trackingOrder === orderId ? null : orderId);
-  };
-
-  const handleReorder = (order) => {
-    dispatch(setReorder(order));
-    navigator("/shoupingCart"); 
-  };
-
-  // Filter orders based on active filter
-  const filteredOrders = activeFilter === 'completed' 
-    ? orders?.filter(order => order.status === 'delivered') 
-    : orders;
-
-  // Calculate completed orders count
-  const completedOrdersCount = orders?.filter(order => order.status === 'delivered').length || 0;
-
-  if (isLoading) return <Loading />;
-  if (isError) {
-    return (
-      <div style={{ textAlign: "center", marginTop: "2rem", color: "red" }}>
-        <h2>❌ وقع مشكل أثناء تحميل البيانات</h2>
-        <button onClick={() => queryClient.invalidateQueries(["user"])}>
-          🔁 إعادة المحاولة
-        </button>
-      </div>
-    );
+  
+ 
+  if (isLoadingSales || isLoadingStatistic){
+    return <div className={styles.loading}>{t('loading')}</div>;
   }
 
   return (
-    <>
-      <Navbar/>
-      <div className={styles.orderHistoryContainer}>
-        <div className={styles.orderHistoryHeader}>
-          <h1><FaBox className={styles.headerIcon} /> سجل الطلبات</h1>
-          <div className={styles.orderStats}>
-            <div className={styles.statItem}>
-              <FaCheckCircle className={styles.statIcon} />
-              <span>{completedOrdersCount} طلبات مكتملة</span>
+    <div className={styles.salesDashboard}>
+      <div className={styles.analyticsGrid}>
+        <div className={styles.analyticsCard}>
+          <div className={styles.cardHeader}>
+            <div>
+              <p className={styles.cardLabel}>{t('filters.Total Sales')}</p>
+              <p className={styles.cardValue}>{sales_statistic?.total_sales}</p>
             </div>
+            <ArrowUpRight color="var(--success-color)" />
           </div>
-          
-          {/* Filter Buttons */}
-          <div className={styles.filterButtons}>
-            <button 
-              className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.activeFilter : ''}`}
-              onClick={() => setActiveFilter('all')}
-            >
-              جميع الطلبات
-            </button>
-            <button 
-              className={`${styles.filterBtn} ${activeFilter === 'completed' ? styles.activeFilter : ''}`}
-              onClick={() => setActiveFilter('completed')}
-            >
-              الطلبات المكتملة
-            </button>
-          </div>
-          
-          <button dir="ltr" className={styles.backButton} onClick={() => navigator(-1)}>
-            <FaArrowRight className={styles.backIcon} />
-            رجوع
-          </button>
         </div>
 
-        <div className={styles.ordersList}>
-          {filteredOrders?.length > 0 ? (
-            filteredOrders.map((order) => (
-              <div className={styles.orderItem} key={order.id}>
-                <div className={styles.orderHeader} onClick={() => toggleOrder(order.id)}>
-                  <div className={styles.orderMainInfo}>
-                    <span className={styles.orderNumber}>{order.order_number}</span>
-                    <span className={styles.orderDate}>{order.order_date}</span>
-                    <button
-                      className={styles.trackOrderBtn}
-                      onClick={(e) => handleTrackOrder(order.id, e)}
-                    >
-                      <FaMotorcycle /> تتبع الطلب
-                    </button>
-                  </div>
-                  <div className={styles.orderStatus}>
-                    <span className={`${styles[order.status]}`}>
-                      {order.status}
-                    </span>
-                    <FaChevronDown className={`${styles.expandIcon} ${expandedOrder === order.id ? styles.expanded : ""}`} />
-                  </div>
-                </div>
-              
-                {expandedOrder === order.id && (
-                  <div className={styles.orderDetails}>
-                    <div className={styles.productsList}>
-                      {order.items.map((item, idx) => (
-                        <div className={styles.productItem} key={idx}>
-                          <img
-                            src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.product_image}`}
-                            alt={item.product_name}
-                            className={styles.productImage}
-                          />
-                          <div className={styles.productInfo}>
-                            <h4>{item.product_name}</h4>
-                            <span>
-                              {item.quantity}x <bdi>درهم</bdi> {item.total_price}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+        <div className={styles.analyticsCard}>
+          <div className={styles.cardHeader}>
+            <div>
+              <p className={styles.cardLabel}>{t('filters.daily_sales')}</p>
+              <p className={styles.cardValue}>{sales_statistic?.sales_last_24_hours}</p>
+            </div>
+            <Calendar color="var(--primary)" />
+          </div>
+        </div>
 
-                    <div className={styles.orderSummary}>
-                      <div className={styles.summaryRow}>
-                        <span dir="rtl">المجموع: {order.total_order} درهم</span>
-                      </div>
-                      <button
-                        className={styles.reorderBtn}
-                        onClick={() => handleReorder(order.items)}
-                      >
-                        <FaRedoAlt /> طلب مرة أخرى
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))
-          ) : (
-            <p className={styles.noOrders}>
-              {activeFilter === 'completed' 
-                ? 'لا توجد طلبات مكتملة' 
-                : 'لا توجد طلبات حاليًا'}
-            </p>
-          )}
+        <div className={styles.analyticsCard}>
+          <div className={styles.cardHeader}>
+            <div>
+              <p className={styles.cardLabel}>{t('filters.weekly_sales')}</p>
+              <p className={styles.cardValue}>{sales_statistic?.sales_last_7_days}</p>
+            </div>
+            <TrendingUp color="var(--success-color)" />
+          </div>
+        </div>
+
+        <div className={styles.analyticsCard}>
+          <div className={styles.cardHeader}>
+            <div>
+              <p className={styles.cardLabel}>{t('filters.monthly_sales')}</p>
+              <p className={styles.cardValue}>{sales_statistic?.sales_last_30_days}</p>
+            </div>
+            <Package color="var(--icon-color)" />
+          </div>
         </div>
       </div>
-    </>
+
+      {/* Filters Section */}
+      <div className={styles.filters}>
+        <div className={styles.searchContainer}>
+          <Search className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder={t('filters.search_placeholder')}
+            className={styles.searchInput}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.dateFilter}>
+          <Calendar className={styles.calendarIcon} />
+          <select
+            className={styles.dateSelect}
+            value={timeFilter}
+            onChange={(e) => setTimeFilter(e.target.value)}
+          >
+            <option value="all">{t('filters.time.all')}</option>
+            <option value="day">{t('filters.time.day')}</option>
+            <option value="week">{t('filters.time.week')}</option>
+            <option value="month">{t('filters.time.month')}</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Sales Table */}
+      <div className={styles.salesTable}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>{t('tables.sale_id')}</th>
+              <th>{t('tables.date')}</th>
+              <th>{t('tables.product_name')}</th>
+              <th>{t('tables.category')}</th>
+              <th>{t('tables.type')}</th>
+              <th>{t('tables.status')}</th>
+              <th>{t('tables.total')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtred_sales?.filter((sale) =>
+                (sale.product?.name?.toLowerCase()?.includes(searchTerm.toLowerCase()) ||
+                sale.category?.name?.toLowerCase()?.includes(searchTerm.toLowerCase()) ||
+                sale.type?.name?.toLowerCase()?.includes(searchTerm.toLowerCase()))
+              )
+              .map((sale) => (
+                <tr key={sale.id} className={styles.tableRow}>
+                  <td className={styles.tableData}>{sale.sale_number ?? sale.id}</td>
+                  <td className={styles.tableData}>{sale.sold_at}</td>
+                  <td className={styles.tableData}>{sale.product.name}</td>
+                  <td className={styles.tableData}>{sale.category.name}</td>
+                  <td className={styles.tableData}>{sale.type.name}</td>
+                  <td className={styles.tableData}>
+                    <span
+                      className={`${styles.statusBadge} ${
+                        sale.id ? styles.completed : styles.refunded
+                      }`}
+                    >
+                      completed
+                    </span>
+                  </td>
+                  <td className={styles.tableData}>{sale.total_price} Dh</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 
-export default OrderHistory;
+export default SalesTable;
