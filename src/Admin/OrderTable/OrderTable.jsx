@@ -8,6 +8,10 @@ const OrderTable = () => {
   const { data: listorders, isLoading, error } = useQuery({
     queryKey: ['orders'],
     queryFn: fetchAllOrders,
+    refetchInterval: 10000, 
+    refetchOnWindowFocus: true, 
+    refetchOnReconnect: true, 
+    retry: 1, 
   });
   const { t } = useTranslation();
 
