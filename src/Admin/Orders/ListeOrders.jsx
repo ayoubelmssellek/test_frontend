@@ -152,13 +152,13 @@ const ListeOrders = () => {
                     onClick={() => setSelectedStatus('ready')}
                   >
                     {t('status.ready')}
-                  </button>
-                  {/* <button
+                   </button>
+                   <button
                     className={`${styles.filterButton} ${selectedStatus === 'delivered' ? styles.active : ''}`}
                     onClick={() => setSelectedStatus('delivered')}
                   >
                     {t('status.delivered')}
-                  </button> */}
+                  </button> 
                 </div>
 
                 <div className={styles.filterButtons}>
