@@ -81,6 +81,8 @@
     align-items: center;
     flex-direction:column ;
     text-align: center;
+    background-color: tomato;
+    color: white;
     padding: 4rem 0;
     gap:    3px;
   }
