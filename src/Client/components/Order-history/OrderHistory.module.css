@@ -6,19 +6,32 @@
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-
 }
 
 .orderHistoryHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 15px;
   margin-bottom: 30px;
-  padding-bottom: 15px;
+  padding: 20px;
   border-bottom: 3px solid #e74c3c;
   background: #fff;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   direction: rtl;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .backButton {
@@ -31,7 +44,6 @@
   color: #e17055;
   font-size: 1rem;
   cursor: pointer;
-
   transition: all 0.3s ease;
   border-radius: 8px;
 }
@@ -46,6 +58,7 @@
   transition: transform 0.3s ease;
   transform: scaleX(-1)
 }
+
 .orderHistoryHeader h1 {
   font-size: 30px;
   color: #2c3e50;
@@ -54,6 +67,7 @@
   align-items: center;
   gap: 12px;
   letter-spacing: 0.5px;
+  margin: 0;
 }
 
 .headerIcon {
@@ -64,6 +78,7 @@
 .orderStats {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .statItem {
@@ -87,6 +102,41 @@
   font-size: 18px;
 }
 
+/* FILTER BUTTONS */
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background: #f8f8f8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+.filterBtn:hover {
+  background: #eee;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activeFilter {
+  background: linear-gradient(45deg, #27ae60, #219653);
+  color: white;
+  border-color: #27ae60;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+/* ORDERS LIST */
 .ordersList {
   display: flex;
   flex-direction: column;
@@ -98,6 +148,7 @@
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid #ecf0f1;
+  transition: all 0.3s ease;
 }
 
 .orderItem:hover {
@@ -148,10 +199,12 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .trackOrderBtn:hover {
   background: linear-gradient(45deg, #2980b9, #1f618d);
+  transform: scale(1.05);
 }
 
 .orderStatus {
@@ -159,8 +212,9 @@
   align-items: center;
   gap: 12px;
 }
-.pending{
-    padding: 6px 12px;
+
+.pending {
+  padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
   color: #fff;
@@ -168,8 +222,9 @@
   background-color: #d1d1d1;
   color: #5d5d5d;
 }
-.preparation{
-    padding: 6px 12px;
+
+.preparation {
+  padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
   color: #fff;
@@ -177,16 +232,18 @@
   background-color: #fef3c7;
   color: #d97706;
 }
-.ready{
-    padding: 6px 12px;
+
+.ready {
+  padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
   color: #fff;
   font-weight: 600;
-  color:  #2f45ff; 
-  background-color:#b3ccff  ;
+  color: #2f45ff;
+  background-color: #b3ccff;
 }
-.delivered{
+
+.delivered {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -199,6 +256,7 @@
 .expandIcon {
   color: #2c3e50;
   font-size: 18px;
+  transition: transform 0.3s ease;
 }
 
 .expandIcon.expanded {
@@ -225,10 +283,12 @@
   background: #f8f9fa;
   padding: 12px;
   border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .productItem:hover {
   background: #ecf0f1;
+  transform: translateX(5px);
 }
 
 .productImage {
@@ -237,6 +297,7 @@
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .productImage:hover {
@@ -247,6 +308,7 @@
   font-size: 16px;
   color: #2c3e50;
   font-weight: 600;
+  margin: 0 0 5px 0;
 }
 
 .productInfo span {
@@ -281,10 +343,12 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .reorderBtn:hover {
   background: linear-gradient(45deg, #219653, #1b7742);
+  transform: scale(1.05);
 }
 
 .trackingModal {
@@ -332,10 +396,12 @@
   padding: 10px;
   background: #f8f9fa;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .trackingStep:hover {
   background: #ecf0f1;
+  transform: translateX(5px);
 }
 
 .stepIcon {
@@ -373,23 +439,45 @@
   width: 100%;
   font-size: 15px;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .closeTrackingBtn:hover {
   background: linear-gradient(45deg, #c0392b, #a93226);
+  transform: scale(1.02);
+}
+
+.noOrders {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 18px;
+  color: #7f8c8d;
+  margin: 20px 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .orderHistoryContainer {
-    margin:   40px 15px;
+    margin: 40px 15px;
     padding: 20px;
   }
 
   .orderHistoryHeader {
-    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .headerTop {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
-    padding: 10px 15px;
+  }
+
+  .headerLeft {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .orderHistoryHeader h1 {
@@ -397,8 +485,10 @@
   }
 
   .orderStats {
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
   }
 
   .statItem {
@@ -406,14 +496,26 @@
     padding: 5px 10px;
   }
 
-  .orderHeader {
-    padding: 12px 15px;
+  .filterButtons {
     gap: 10px;
+    justify-content: center;
+  }
+
+  .filterBtn {
+    padding: 6px 15px;
+    font-size: 14px;
+  }
+
+  .orderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 15px;
   }
 
   .orderMainInfo {
-    gap: 15px;
-    flex: 1;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .orderNumber {
@@ -429,8 +531,13 @@
     font-size: 13px;
   }
 
+  .orderStatus {
+    width: 100;
+    justify-content: space-between;
+  }
+
   .productsList {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .productImage {
@@ -443,9 +550,10 @@
   }
 
   .orderSummary {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 12px;
     padding: 12px 0;
+    align-items: flex-start;
   }
 
   .summaryRow {
@@ -455,11 +563,11 @@
   .reorderBtn {
     padding: 7px 12px;
     font-size: 13px;
+    align-self: flex-end;
   }
 
   .trackingContent {
-    padding: 25px;
-    max-width: 420px;
+    padding: 20px;
   }
 
   .trackingContent h3 {
@@ -474,5 +582,23 @@
   .closeTrackingBtn {
     padding: 8px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filterBtn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .orderMainInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }

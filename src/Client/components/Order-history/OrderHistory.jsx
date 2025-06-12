@@ -15,7 +15,10 @@ const OrderHistory = () => {
     queryKey: ['orders'],
     queryFn: fetchUserOrders,
   });
-  
+   const { data: sales  } = useQuery({
+    queryKey: ['sales'],
+    queryFn: fetchUserOrders,
+  });
   const [expandedOrder, setExpandedOrder] = useState(null);
   const [trackingOrder, setTrackingOrder] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all'); // 'all' or 'completed'
