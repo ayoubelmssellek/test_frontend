@@ -1,0 +1,28 @@
+/* WarningAlert.module.css */
+
+.warningAlert {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #fffbea;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.warningIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.warningText {
+  display: inline;
+}
+
+[dir="rtl"] .warningAlert{
+  
+}

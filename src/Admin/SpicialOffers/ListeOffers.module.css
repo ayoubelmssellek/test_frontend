@@ -1,0 +1,335 @@
+:root {
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --border-color: #ddd;
+  --hover-bg: #f9f9f9;
+  --offer-color: #45a049;
+  --edit-color: #2196F3;
+  --table-header-bg: #f8f9fa;
+  --date-color: #6b7280;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: #374151;
+  --hover-bg: #373737;
+  --offer-color: #ff4444;
+  --edit-color: #64B5F6;
+  --date-color: #9ca3af;
+  --table-header-bg: #2d2d2d;
+}
+
+/* Existing unchanged styles */
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.pushMainContent {
+  margin-left: 175px;
+}
+
+.ml20 {
+  margin-left: 50px;
+}
+
+.pages {
+  padding: 20px;
+  margin-top: 60px;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+.headerActions{
+  display: flex;
+  gap: 10px;
+}
+
+.productsContainer {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterInput input,
+.filterInput select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.filterInput label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  padding: 0 5px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.filterInput input:focus ~ label,
+.filterInput input:not(:placeholder-shown) ~ label,
+.filterInput select:valid ~ label {
+  top: 0;
+  font-size: 12px;
+  color: var(--success);
+}
+
+.clearButton {
+  padding: 10px 20px;
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clearButton:hover {
+ opacity: .8;
+}
+
+/* Updated table styles */
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.productsTable th,
+.productsTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.productsTable th {
+  background-color: var(--table-header-bg);
+  font-weight: 600;
+}
+
+.productsTable tr:hover {
+  background-color: var(--hover-bg);
+}
+
+.productsTable img {
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+/* Offer duration styling */
+.offer-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9em;
+}
+
+.offer-dates span:first-child {
+  color: var(--offer-color);
+  font-weight: 500;
+}
+
+.offer-dates span:last-child {
+  color: var(--date-color);
+}
+
+/* Edit button styling */
+.offerButton button {
+  padding: 8px 16px;
+  background-color: var(--edit-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.offerButton button:hover {
+  opacity: 0.9;
+}
+
+.noProducts {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ml20 {
+    margin-left: 1rem;
+  }
+  
+  .productsTable th,
+  .productsTable td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .productsTable {
+    min-width: 600px;
+  }
+
+  .offer-dates {
+    font-size: 0.85em;
+  }
+
+  .offerButton button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+}
+
+/* RTL adjustments */
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .filterInput label {
+  left: auto;
+  right: 10px;
+}
+
+[dir="rtl"] .productsTable th,
+[dir="rtl"] .productsTable td {
+  text-align: right;
+}
+
+[dir="rtl"] .filterInput input:focus ~ label,
+[dir="rtl"] .filterInput input:not(:placeholder-shown) ~ label {
+  right: 10px;
+  left: auto;
+}
+
+[dir="rtl"] .offer-dates {
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .ml20 {
+    margin-right: 1rem;
+  }
+}
+/* Add these styles to ListeOffers.module.css */
+.headerActions {
+  margin-bottom: 20px;
+ 
+}
+
+.addOfferButton {
+  padding: 8px 16px;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 8px;
+  /* background: var(--card-bg); */
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addOfferButton:hover {
+  opacity: 0.9;
+}
+
+
+td button {
+  margin-left: 8px;
+}
+
+
+
+
+
+
+
+
+/* aaaaaaaaa */
+
+
+.offerTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.offerTabButton {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.offerTabButton:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.activeTab {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* دعم RTL */
+[dir="rtl"] .offerTabs {
+  flex-direction: row-reverse;
+}

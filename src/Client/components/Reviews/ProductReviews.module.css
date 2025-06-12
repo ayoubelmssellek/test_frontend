@@ -1,0 +1,185 @@
+/* Reviews.module.css */
+.reviewsSection {
+  direction: rtl;
+  background: #f8f9fa;
+  padding: 4rem 0;
+}
+
+.reviewsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.reviewsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #2d3436;
+  margin: 0 0 1.5rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 120px;
+  height: 3px;
+  background: #e17055;
+}
+
+.allReviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.reviewCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e17055;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.userDetails {
+  flex: 1;
+}
+
+.userName {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.reviewDate {
+  color: #636e72;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.rating {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.star {
+  color: #ddd;
+  font-size: 1.2rem;
+}
+
+.starFilled {
+  color: #ffb400;
+}
+
+.reviewContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reviewText {
+  color: #444;
+  line-height: 1.8;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.reviewTextCollapsed {
+  max-height: 120px;
+}
+
+.toggleTextBtn {
+  background: none;
+  border: none;
+  color: #e17055;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.toggleTextBtn:hover {
+  color: #d1624a;
+}
+
+.toggleIcon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .reviewCard {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewsSection {
+    padding: 2rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .userAvatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .reviewText {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,108 @@
+:root {
+  /* Existing variables */
+  --status-in-prep-bg: #fff3cd;
+  --status-in-prep-text: #f5e31f;
+  --status-ready-bg: #d9e5ff;
+  --status-ready-text: #235cff;
+  --status-delivered-bg: #f0feef;
+  --status-delivered-text: #18d115;
+}
+
+[data-theme="dark"] {
+  --status-in-prep-bg: #fff3cd;
+  --status-in-prep-text: #ffd54f;
+  --status-ready-bg: #001a33;
+  --status-ready-text: #4c8cff;
+  --status-delivered-bg: #002200;
+  --status-delivered-text: #4caf50;
+}
+/* OrderTable.module.css */
+.recentOrders {
+  background: var(--input-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  padding: 20px;
+}
+
+.tableHeader h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable th,
+.ordersTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ordersTable th {
+  background: var(--table-header-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  text-align: left;
+
+}
+
+.ordersTable td {
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: left;
+
+}
+
+.ordersTable tr:hover {
+  background: var(--hover-bg);
+}
+
+/* Status Styles */
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pending{
+  background-color: #d1d1d1;
+  color: #5d5d5d;
+}
+.preparation{
+  background-color: #fef3c7;
+  color: #d97706;
+}
+.ready{
+  color:  #2f45ff; 
+  background-color:#b3ccff  ;
+}
+.delivered{
+  background-color: #9dff80;
+  color: #00d305;
+}
+
+/* RTL Support */
+[dir="rtl"] .ordersTable th{
+  text-align: right;
+}
+
+[dir="rtl"] .ordersTable td {
+  text-align: right;
+}
+
+
+@media (max-width: 768px) {
+  .recentOrders {
+    overflow-x: auto;
+  }
+  
+  .ordersTable {
+    min-width: 600px;
+  }
+}

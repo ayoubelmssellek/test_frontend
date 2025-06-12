@@ -1,0 +1,181 @@
+:root {
+  --card-bg: #ffffff;
+  --text-color: #2d3748 !important;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --status-available-bg: rgb(209, 250, 229);
+  --status-all-bg: #fff;
+  --status-available-text: rgb(5, 150, 105);
+  --status-outofstock-bg: rgb(255, 192, 192);
+  --status-outofstock-text: rgb(255, 87, 87);
+  
+}
+
+[data-theme="dark"] {
+  --card-bg: #2d3748;
+  --text-color: #edf2f7 !important;
+  --border-color: #4a5568;
+  --card-shadow: 0 1px 3px rgba(49, 42, 42, 0.3);
+  --card-hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --status-available-bg: #22543d;
+  --status-all-bg: #447c9e38;
+  --status-available-text: #9ae6b4;
+  --status-outofstock-bg: #742a2a;
+  --status-outofstock-text: #fed7d7;
+}
+
+/* Container */
+.container {
+  background-color: var(--card-bg);
+  max-width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+}
+
+/* Header & Badges */
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: .5rem;
+  background: var(--card-bg);
+}
+
+/* Responsive Grid for Badges */
+.typeBadges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Badge Styling */
+.statBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Badge Icon */
+.statIcon {
+  font-size: 2rem;
+}
+
+/* Badge Content */
+.statContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6c757d;
+}
+
+.statNumber {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Badge Colors */
+.allTypesStat {
+  background: #e3e8f0;
+  color: #4a5568;
+}
+.allTypesStat{
+  background-color: var(--status-all-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+}
+.availableStat {
+  background: var(--status-available-bg);
+  color: var(--status-available-text);
+}
+
+.outOfStockStat {
+  background: var(--status-outofstock-bg);
+  color: var(--status-outofstock-text);
+}
+
+/* Grid for Product Types */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+/* Product Type Item */
+.typeItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+}
+
+.typeItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Type Name */
+.typeName {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status Button */
+.statusPill {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+  min-width: 90px;
+  text-align: center;
+}
+
+.available {
+  background: var(--status-available-bg);
+  color: var(--status-available-text);
+}
+
+.outOfStock {
+  background: var(--status-outofstock-bg);
+  color: var(--status-outofstock-text);
+}
+
+@media (max-width: 768px) {
+  .typeBadges {
+    grid-template-columns: 1fr;
+  }
+}
+
+

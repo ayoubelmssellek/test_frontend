@@ -1,0 +1,359 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --input-bg: #ffffff;
+  --border-color: #dee2e6;
+  --hover-bg: #f8f9fa;
+  --table-header-bg: hsl(210, 17%, 98%);
+  --accent-color: #235cff;
+  --info-color: #4c70ff;
+  --success-color: #4CAF50;
+  --preparation-color: orange;
+}
+
+[data-theme="dark"] {
+  --bg-color:  #07080a !important;
+  --text-color: #ffffff;
+  --input-bg: #000d15;
+  --border-color: #001a2c;
+  --hover-bg: #001a2cb2;
+  --table-header-bg: #000d15;
+  --accent-color: #235cff;
+  --info-color: #4c70ff;
+  --success-color: #00C853;
+  --preparation-color: orange;
+
+}
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.pushMainContent {
+  margin-left: 175px;
+}
+
+.ml20 {
+  margin-left: 50px;
+}
+
+.pages {
+  padding: 20px;
+}
+
+.ordersPage {
+  margin-top: 60px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statCard {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bgBlue {
+  background: color-mix(in srgb, var(--primary) 20%);
+}
+
+.bgGreen {
+  background: color-mix(in srgb, var(--success) 20%);
+}
+
+.bgPurple {
+  background: color-mix(in srgb, var(--info) 20%);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+}
+
+.statLabel {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filterSection {
+  margin: 20px 0;
+}
+
+.filterGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.filterButton.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.ordersTable {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.ordersTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable th,
+.ordersTable td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ordersTable th {
+  background: var(--hover-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.ordersTable td {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.ordersTable tr:hover {
+  background: var(--hover-bg);
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.statusSelect {
+  appearance: none;
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+
+.statusSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 10%);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+}
+/* No orders message */
+center span {
+  color: var(--text-secondary);
+  padding: 20px;
+  display: block;
+}
+
+/* Add RTL Support */
+[dir="rtl"] .statsGrid {
+  direction: rtl;
+}
+
+[dir="rtl"] .statCard {
+  flex-direction: row-reverse;
+}
+
+
+
+[dir="rtl"] .ordersTable th,
+[dir="rtl"] .ordersTable td {
+  text-align: right;
+}
+
+[dir="rtl"] .selectIcon {
+  right: auto;
+  left: 12px;
+}
+
+[dir="rtl"] .statusSelect {
+  padding: 8px 12px 8px 32px;
+}
+
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ordersTable tr {
+  direction: rtl;
+}
+
+[dir="rtl"] .statIcon {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+[dir="rtl"] center span {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .selectWrapper {
+  direction: ltr;
+}
+
+[dir="rtl"] .filterButton {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+[dir="rtl"] .statLabel,
+[dir="rtl"] .statValue {
+  text-align: right;
+}
+
+[dir="rtl"] .ordersTable table {
+  direction: rtl;
+}
+
+[dir="rtl"] .content {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+[dir="rtl"] .filterSection {
+  direction: rtl;
+}
+
+/* Status Styles */
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+.pending{
+  background-color: #d1d1d1;
+  color: #5d5d5d;
+}
+.preparation{
+  background-color: #fef3c7;
+  color: #d97706;
+}
+.ready{
+  color:  #2f45ff; 
+  background-color:#b3ccff  ;
+}
+.delivered{
+  background-color: #9dff80;
+  color: #00d305;
+}
+
+/* RTL Support */
+[dir="rtl"] .ordersTable table {
+  text-align: right;
+}
+
+[dir="rtl"] .statCard > div:first-child {
+  margin-left: 12px;
+  margin-right: 0;
+}
+
+
+.viewButton{
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+

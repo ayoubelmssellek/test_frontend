@@ -1,0 +1,75 @@
+.container {
+    width: 100%;
+}
+
+.productInfo {
+    width: 700px;
+    height: auto;
+    display: flex;
+    background-color: #fff;
+    text-align: center;
+    justify-content: flex-start;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    gap: 15px;
+}
+
+.productImage {
+    border-radius: 5px;
+    width: 35%;
+    object-fit: cover;
+}
+
+.productDetails {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.productAndBackButton {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.detailLabel {
+    font-size: 1em;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.detailValue {
+    font-size: 1em;
+}
+
+.actionContainer {
+    align-self: flex-end;
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+.closeButton {
+    background-color: #da4444;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.closeButton:hover {
+    background-color: #c23333;
+}
+
+.errorMessage {
+    padding: 20px;
+    text-align: center;
+}
