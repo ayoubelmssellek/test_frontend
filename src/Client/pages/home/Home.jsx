@@ -8,7 +8,7 @@ import Reviews from '../../components/Reviews/Reviews';
 import LocationSection from '../../components/OurLocation/useUserLocation';
 import MobileFoodSlider from '../../components/header/MobileFoodSlider/MobileFoodSlider';
 import PopularDishes from '../../components/PopularDishes/PopularDishes';
-import AddToHomeMessage from '../../../Helper/AddToHomePrompt';
+import InstallAppPrompt from '../../../Helper/AddToHomePrompt';
 
 const Home = () => { 
  const [isMobile,setIsMobile]=useState(window.innerWidth<=576)
@@ -34,7 +34,7 @@ const Home = () => {
       {
         isMobile ? <MobileFoodSlider/> : <DisktopFoodSlider/>
       }
-      <AddToHomeMessage/>
+      <InstallAppPrompt/>
        <ExploreMenu/>
        <FoodDisplay/>
        <PopularDishes/>

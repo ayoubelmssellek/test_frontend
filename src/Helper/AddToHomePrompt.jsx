@@ -1,63 +1,62 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-const AddToHome = () => {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showPrompt, setShowPrompt] = useState(false);
+function InstallAppPrompt() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null)
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault(); // باش مانخليهش يطلع بوحدو
-      setDeferredPrompt(e);
-      setShowPrompt(true); // نعرض الزر ديال الإضافة
-    };
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault()
+      setDeferredPrompt(e)
+      setShow(true)
+    })
+  }, [])
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
-
-  const handleAddToHome = async () => {
+  const handleInstallClick = () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt(); // كيطلع popup ديال Chrome
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      setDeferredPrompt(null);
-      setShowPrompt(false);
+      deferredPrompt.prompt()
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted A2HS prompt')
+        } else {
+          console.log('User dismissed A2HS prompt')
+        }
+        setDeferredPrompt(null)
+        setShow(false)
+      })
     }
-  };
+  }
 
-  if (!showPrompt) return null;
+  if (!show) return null
 
   return (
     <div style={{
-      background: '#fff3cd',
-      padding: '10px',
-      textAlign: 'center',
       position: 'fixed',
       top: 0,
-      left: 0,
-      right: 0,
+      width: '100%',
+      backgroundColor: '#ff5722',
+      color: 'white',
+      padding: '10px',
+      textAlign: 'center',
       zIndex: 1000
     }}>
-      <span>🌟 زيد Gusto Dakhla للشاشة الرئيسية!</span>
-      <button onClick={handleAddToHome} style={{
-        marginLeft: '10px',
-        padding: '5px 10px',
-        background: '#ff5722',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '4px'
-      }}>
-        ضيف
+      <span>ضيف التطبيق للشاشة الرئيسية 🔥</span>
+      <button
+        onClick={handleInstallClick}
+        style={{
+          marginLeft: '10px',
+          background: 'white',
+          color: '#ff5722',
+          border: 'none',
+          padding: '5px 10px',
+          cursor: 'pointer',
+          borderRadius: '5px'
+        }}
+      >
+        أضف الآن
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default AddToHome;
+export default InstallAppPrompt
