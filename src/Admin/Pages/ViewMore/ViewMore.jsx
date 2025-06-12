@@ -18,7 +18,7 @@ const ViewMore = ({ product, onClose }) => {
         <div className={styles.container}>
             <div className={styles.productInfo}>
                 <img 
-                    src={`http://localhost:8000/storage/${product.image_path}`} 
+                    src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`} 
                     alt={product.name} 
                     loading="lazy" 
                     className={styles.productImage} 

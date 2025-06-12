@@ -53,7 +53,7 @@ const ViewCategoryDetails = () => {
                                             <td>${item.price}</td>
                                             <td>
                                                 <img
-                                                    src={`http://localhost:8000/storage/${item.image_path}`}
+                                                    src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.image_path}`}
                                                     alt="product"
                                                     title='image'
                                                     width={60}

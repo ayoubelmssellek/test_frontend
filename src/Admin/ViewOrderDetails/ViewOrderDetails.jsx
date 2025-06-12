@@ -72,7 +72,7 @@ const ViewOrderDetails = () => {
             <div className={style['items']}>
               {order?.items?.map((item, i) => (
                 <div key={i} className={style['item']}>
-                  <img src={`${import.meta.env.VITE_API_BASE_URL}/${item.image_path}`} alt={item.name} />
+                  <img src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.image_path}`} alt={item.name} />
                   <div>
                     <h3>{item.name}</h3>
                     <p>{item.total_price / item.quantity} {t('dirham')} x{item.quantity}</p>

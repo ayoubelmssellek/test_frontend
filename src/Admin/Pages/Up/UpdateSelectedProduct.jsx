@@ -49,7 +49,7 @@ const UpdateSelectedProduct = ({ Code, product, onClose }) => {
       });
 
       if (product.image_path) {
-        setPreviewImage(`${import.meta.env.VITE_API_BASE_URL}/${product.image_path}`);
+        setPreviewImage(`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`);
       } else {
         setPreviewImage(null);
       }

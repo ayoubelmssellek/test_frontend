@@ -306,7 +306,7 @@ const Products = () => {
                                                     <td>
                                                         <img
                                                         className={styles.productImage}
-                                                        src={`${import.meta.env.VITE_API_BASE_URL}/${item.image_path}`}
+                                                        src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.image_path}`}
                                                         alt={item.name}
                                                         />
                                                     </td>

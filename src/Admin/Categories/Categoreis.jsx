@@ -138,7 +138,7 @@ const Categories = () => {
                 >
                   <div className={styles.cardMedia}>
                     <img
-                      src= {`${import.meta.env.VITE_API_BASE_URL}/${cat.image}?t=${Date.now()}`} 
+                      src= {`${import.meta.env.VITE_API_IMG_BASE_URL}/${cat.image}?t=${Date.now()}`} 
                       alt={cat.menu_name}
                       className={styles.categoryImage}
                     />
