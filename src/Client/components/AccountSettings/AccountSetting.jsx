@@ -99,7 +99,7 @@ const Settings = () => {
     const confirm=window.confirm('are you sur you want to logout')
     if (confirm) {
         localStorage.removeItem('user');
-        localStorage.removeItem('token');
+        localStorage.removeItem('authToken');
         navigate('/login'); 
     }
   
