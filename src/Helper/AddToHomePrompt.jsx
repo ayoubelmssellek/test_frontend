@@ -1,71 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const AddToHomeMessage = () => {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showMessage, setShowMessage] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handler = (e) => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Save the event so it can be triggered later
-      setDeferredPrompt(e);
-      setShowMessage(true);
-    };
-
-    window.addEventListener('beforeinstallprompt', handler);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handler);
-    };
+    const dismissed = localStorage.getItem('addToHomeDismissed');
+    if (!dismissed) {
+      setVisible(true);
+    }
   }, []);
 
-  const handleAddToHome = () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted A2HS');
-        } else {
-          console.log('User dismissed A2HS');
-        }
-        setShowMessage(false);
-      });
-    }
+  const handleClose = () => {
+    setVisible(false);
+    localStorage.setItem('addToHomeDismissed', 'true');
   };
 
-  if (!showMessage) return null;
+  if (!visible) return null;
 
   return (
     <div style={{
+      backgroundColor: '#fff3cd',
+      color: '#856404',
+      borderBottom: '1px solid #ffeeba',
+      padding: '10px 20px',
+      textAlign: 'center',
       position: 'fixed',
-      bottom: '20px',
-      left: '20px',
-      right: '20px',
-      background: '#fff3cd',
-      border: '1px solid #ffeeba',
-      padding: '15px',
-      borderRadius: '8px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 9999,
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       alignItems: 'center',
-      zIndex: 9999
+      gap: '15px'
     }}>
-      <span>📱 Add Gusto Dakhla to your home screen for easy access</span>
-      <button
-        onClick={handleAddToHome}
-        style={{
-          marginLeft: '15px',
-          padding: '8px 14px',
-          backgroundColor: '#ff5722',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}
-      >
-        Add to Home
+      <span>📱 زيد تطبيق Gusto Dakhla للشاشة الرئيسية ديالك</span>
+      <button onClick={handleClose} style={{
+        backgroundColor: '#ff5722',
+        color: '#fff',
+        border: 'none',
+        padding: '6px 14px',
+        borderRadius: '5px',
+        cursor: 'pointer'
+      }}>
+        ضيف
       </button>
     </div>
   );

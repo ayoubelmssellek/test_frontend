@@ -19,7 +19,6 @@ const OrderHistory = lazy(() => import("./components/Order-history/OrderHistory"
 const Settings = lazy(() => import("./components/AccountSettings/AccountSetting"));
 const ContactForm = lazy(() => import("./components/ContactUs/ContactUs"));
 const AllReviews = lazy(() => import("./components/Reviews/all_reviews"));
-import AddToHomePrompt from "../Helper/AddToHomePrompt";
 function ClientRoutes() {
   
   return (
@@ -45,7 +44,6 @@ function ClientRoutes() {
            <Route path="/*" element={<NotFoundPage />} />
 
         </Routes>
-              <AddToHomePrompt />
       </Suspense>
    </div>
     
