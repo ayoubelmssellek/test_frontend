@@ -19,7 +19,9 @@ const OrderHistory = lazy(() => import("./components/Order-history/OrderHistory"
 const Settings = lazy(() => import("./components/AccountSettings/AccountSetting"));
 const ContactForm = lazy(() => import("./components/ContactUs/ContactUs"));
 const AllReviews = lazy(() => import("./components/Reviews/all_reviews"));
+import AddToHomePrompt from "../Helper/AddToHomePrompt";
 function ClientRoutes() {
+  
   return (
   
     <div className={styles.clientapp}>
@@ -44,6 +46,7 @@ function ClientRoutes() {
 
         </Routes>
       </Suspense>
+      <AddToHomePrompt />
    </div>
     
    

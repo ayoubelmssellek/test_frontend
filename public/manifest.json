@@ -1,0 +1,20 @@
+{
+  "name": "Gusto Dakhla",
+  "short_name": "Gusto",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff5722",
+  "icons": [
+    {
+      "src": "/gustologo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/gustologo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}
