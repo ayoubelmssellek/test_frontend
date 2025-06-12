@@ -84,7 +84,7 @@ const FoodDisplay = () => {
     mutation.mutate(productId);
   };
 
-  const isInCart = (id) => CartItems.some((item) => item.id === id);
+  const isInCart = (id) => CartItems?.some((item) => item.id === id);
   const isFavorite = (id) => favoriteList?.some((item) => item.id === id);
 
   if (productsLoading || favLoading) return <Loading />;

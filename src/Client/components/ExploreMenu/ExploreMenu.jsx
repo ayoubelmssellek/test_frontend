@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import Loading from '../../../Helper/Loading/Loading'
 
 const ExploreMenu = () => {
-  const {data:menu_list, loading, error} = useQuery({
+  const {data:menu_list =[], loading, error} = useQuery({
     queryKey: ['categories'],
     queryFn: fetchingCategories
   });

@@ -13,7 +13,7 @@ import Loading from "../../../Helper/Loading/Loading";
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
-  const { data: food_list, isLoading, error } = useQuery({
+  const { data: food_list =[], isLoading, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchingProducts
   });
