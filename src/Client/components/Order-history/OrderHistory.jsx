@@ -16,7 +16,10 @@ const OrderHistory = () => {
     queryKey: ['orders'],
     queryFn: fetchUserOrders,
   });
-  
+   const { data: completedorders, isLoading, isError, error } = useQuery({
+    queryKey: ['completedorders'],
+    queryFn: fetchUserOrders,
+  });
 
   
   const [expandedOrder, setExpandedOrder] = useState(null);
