@@ -143,7 +143,7 @@ const DesktopFoodSlider = () => {
                 onClick={() => setActiveIndex(index)}
               >
                 <img
-                  src={`http://localhost:8000/storage/${slide.image_path}`}
+                  src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${slide.image_path}`}
                   alt={`Thumbnail - ${slide.name}`}
                   className={style['thumbnail-image']}
                 />

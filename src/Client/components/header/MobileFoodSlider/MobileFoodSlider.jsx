@@ -106,7 +106,7 @@ const MobileFoodSlider = () => {
             {slides?.slice(0, 8).map((slide, index) => (
               <div className="mobileslide" key={index}>
                 <div className="mobileslideimg">
-                  <img src={`http://localhost:8000/storage/${slide.image_path}`} alt={slide.name} />
+                  <img src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${slide.image_path}`} alt={slide.name} />
                   {slide.discount !==0 && (
                   <div className="discount-label">
                     <span>{slide.discount}% تخفيض</span>

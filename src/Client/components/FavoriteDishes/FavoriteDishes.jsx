@@ -82,7 +82,7 @@ const FavoriteDishes = () => {
                 <div className={`${styles.ImageContainer} ${produit.status === 'out of stock' ? styles.OutOfStockOverlay : ''}`}>
                   <Link to={`/product/${produit.id}`}>
                     <img 
-                      src={`${import.meta.env.VITE_API_BASE_URL}/${produit.image_path}`} 
+                      src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${produit.image_path}`} 
                       alt={produit.name} 
                       className={styles.ProductImage}
                       loading="lazy" 

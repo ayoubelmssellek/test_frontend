@@ -20,7 +20,7 @@ const AllReviews = () => {
   const acceptedReviews = reviewsData?.filter(item => item.status === "Accepted");
 
   const handleImageClick = (image) => {
-    setFullImage(`${import.meta.env.VITE_API_BASE_URL}/${image}`);
+    setFullImage(`${import.meta.env.VITE_API_IMG_BASE_URL}/${image}`);
   };
 
   const toggleText = (reviewId) => {
@@ -79,7 +79,7 @@ const AllReviews = () => {
                 <div className={styles.dishImage} onClick={() => handleImageClick(review.product_image)}>
                   {review.product_image && (
                     <img 
-                      src={`http://localhost:8000/storage/${review.product_image}`} 
+                      src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${review.product_image}`} 
                       alt={review.product_name} 
                       loading="lazy"
                     />

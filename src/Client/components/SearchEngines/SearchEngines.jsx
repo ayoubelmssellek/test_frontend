@@ -145,7 +145,7 @@ const ClearIcon = ({ onClick }) => (
               filteredProducts?.map((product) => (
                 <div className="result-card" key={product.id}>
                   <img
-                    src={`${import.meta.env.VITE_API_BASE_URL}/${product.image_path}`}	
+                    src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`}	
                     alt={product.name}
                     className="product-img"
                   />

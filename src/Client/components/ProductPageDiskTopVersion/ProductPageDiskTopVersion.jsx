@@ -102,7 +102,7 @@ const ProductPageDiskTopVersion = () => {
         <div className={styles.containerContent}>
           <div className={styles.imageContainer}>
             <img 
-              src={`http://localhost:8000/storage/${product.image_path}`} 
+              src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`} 
               alt={product.name} 
               className={styles.productImage} 
               loading="lazy" 
@@ -134,7 +134,7 @@ const ProductPageDiskTopVersion = () => {
                 {extraItems?.map((product) => (
                   <div key={product.id} className={styles.extraItem}>
                     <img 
-                      src={`${import.meta.env.VITE_API_BASE_URL}/${product.image_path}`} 
+                      src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`} 
                       alt={product.name} 
                       className={styles.extraItemImage} 
                     />

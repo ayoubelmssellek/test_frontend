@@ -95,7 +95,7 @@ if (isError) {
                     {order.items.map((item, idx) => (
                       <div className={styles.productItem} key={idx}>
                         <img
-                          src={`${import.meta.env.VITE_API_BASE_URL}/${item.product_image}`}
+                          src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.product_image}`}
                           alt={item.product_name}
                           className={styles.productImage}
                         />

@@ -110,7 +110,7 @@ const ProductPage = () => {
                 </div>
                 <div className={styles.imageContainer}>
                     <img 
-                        src={`http://localhost:8000/storage/${product.image_path}`}    
+                        src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`}    
                         alt={product.name} 
                         className={styles.productImage} 
                         loading="lazy" 
@@ -143,7 +143,7 @@ const ProductPage = () => {
                             {extraItems?.map((item) => (
                                 <div key={item.id} className={styles.extraItem}>
                                     <img 
-                                        src={`${import.meta.env.VITE_API_BASE_URL}/${item.image_path}`} 
+                                        src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${item.image_path}`} 
                                         alt={item.name} 
                                         className={styles.extraItemImage} 
                                     />

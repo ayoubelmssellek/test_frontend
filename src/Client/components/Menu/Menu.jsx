@@ -101,7 +101,7 @@ import Loading from "../../../Helper/Loading/Loading";
               <div key={produit.id} className={styles.Cart}>
                 <div className={`${styles.ImageContainer} ${produit.status === 'out of stock' ? styles.OutOfStockOverlay : ''}`}>
                   <img 
-                    src={`${import.meta.env.VITE_API_BASE_URL}/${produit.image_path}`} 
+                    src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${produit.image_path}`} 
                     alt={produit.name} 
                     className={styles.ProductImage}
                     loading="lazy" 
