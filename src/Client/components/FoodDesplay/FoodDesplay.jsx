@@ -109,8 +109,8 @@ const FoodDisplay = () => {
                   </div>
                 )}
               <img
-                src={`https://laravelapi-production-64b8.up.railway.app/storage/${product.image_path}`}
-                alt={product.image_path}
+                src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${product.image_path}`}
+                alt={product.name}
                 className={styles.ProductImage}
                 loading="lazy"
               />

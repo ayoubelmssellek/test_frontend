@@ -107,7 +107,7 @@ const DesktopFoodSlider = () => {
                     </div>
                   )}
                   <img
-                    src={`http://localhost:8000/storage/${slide.image_path}`}
+                    src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${slide.image_path}`}
                     alt={slide.name}
                     className={style['slide-image']}
                     loading="lazy"
