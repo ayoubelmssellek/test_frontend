@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://laravelapi-production-64b8.up.railway.app', // العنوان ديال Laravel
+        target: 'https://backendapi-production-17c3.up.railway.app', // العنوان ديال Laravel
         changeOrigin: true,
         secure: false,
       },
