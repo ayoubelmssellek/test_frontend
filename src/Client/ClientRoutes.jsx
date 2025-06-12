@@ -42,11 +42,11 @@ function ClientRoutes() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/all-reviews" element={<AllReviews />} />
           <Route path="/contactUs" element={<ContactForm />} />
-              <Route path="/*" element={<NotFoundPage />} />
+           <Route path="/*" element={<NotFoundPage />} />
 
         </Routes>
+              <AddToHomePrompt />
       </Suspense>
-      <AddToHomePrompt />
    </div>
     
    
