@@ -81,7 +81,7 @@ const Reviews = () => {
 
                 <div className={styles.cardBody}>
                 <div className={styles.dishImage} onClick={() => handleImageClick(review.product_image)}>
-                  {review.product_image && <img src={`${import.meta.env.VITE_API_BASE_URL}/${review.product_image}`} alt={review.product_image} />}
+                  {review.product_image && <img src={`${import.meta.env.VITE_API_IMG_BASE_URL}/${review.product_image}`} alt={review.product_image} />}
                   <div className={styles.imageOverlay}>انقر للتكبير</div>
                 </div>
                   <div className={styles.dishInfo}>
