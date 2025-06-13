@@ -1,70 +1,76 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 function InstallAppPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState(null)
-  const [showAndroid, setShowAndroid] = useState(false)
-  const [showIOS, setShowIOS] = useState(false)
-  const [closed, setClosed] = useState(false)
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showAndroid, setShowAndroid] = useState(false);
+  const [showIOS, setShowIOS] = useState(false);
+  const [closed, setClosed] = useState(false);
 
-  // Detect iOS
+  // كشف iOS
   const isIos = () => {
-    const userAgent = window.navigator.userAgent.toLowerCase()
-    return /iphone|ipad|ipod/.test(userAgent)
-  }
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  };
 
-  // Detect if in Safari
+  // كشف إذا التطبيق مفتوح كـ standalone
   const isInStandaloneMode = () =>
-    'standalone' in window.navigator && window.navigator.standalone
+    'standalone' in window.navigator && window.navigator.standalone;
 
   useEffect(() => {
-    // Android support
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault()
-      setDeferredPrompt(e)
-      setShowAndroid(true)
-    })
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowAndroid(true);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
 
-    // iOS manual guide
     if (isIos() && !isInStandaloneMode()) {
-      setShowIOS(true)
+      setShowIOS(true);
     }
-  }, [])
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler);
+    };
+  }, []);
 
   const handleInstallClick = () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt()
+      deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted A2HS prompt')
+          console.log('User accepted A2HS prompt');
         } else {
-          console.log('User dismissed A2HS prompt')
+          console.log('User dismissed A2HS prompt');
         }
-        setDeferredPrompt(null)
-        setShowAndroid(false)
-      })
+        setDeferredPrompt(null);
+        setShowAndroid(false);
+      });
     }
-  }
+  };
 
   const handleClose = () => {
-    setClosed(true)
-  }
+    setClosed(true);
+  };
 
-  if ((!showAndroid && !showIOS) || closed) return null
+  if ((!showAndroid && !showIOS) || closed) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      width: '100%',
-      backgroundColor: '#ff5722',
-      color: 'white',
-      padding: '10px 40px 10px 10px',
-      textAlign: 'center',
-      zIndex: 1000,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
+    <div
+      style={{
+        position: 'relative',   // relative باش ياخذ مكان في الصفحة
+        marginTop: '60px',      // ارتفاع Navbar (غير الرقم حسب ارتفاعك)
+        width: '100%',
+        backgroundColor: '#ff5722',
+        color: 'white',
+        padding: '10px 40px 10px 10px',
+        textAlign: 'center',
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxSizing: 'border-box',
+      }}
+    >
       <div style={{ flex: 1 }}>
         {showAndroid && (
           <>
@@ -78,7 +84,7 @@ function InstallAppPrompt() {
                 border: 'none',
                 padding: '5px 10px',
                 cursor: 'pointer',
-                borderRadius: '5px'
+                borderRadius: '5px',
               }}
             >
               أضف الآن
@@ -88,7 +94,8 @@ function InstallAppPrompt() {
 
         {showIOS && (
           <span>
-            📱 باش تضيف التطبيق، ضغط على <strong>مشاركة</strong> ثم <strong>إضافة إلى الشاشة الرئيسية</strong>.
+            📱 باش تضيف التطبيق، ضغط على <strong>مشاركة</strong> ثم{' '}
+            <strong>إضافة إلى الشاشة الرئيسية</strong>.
           </span>
         )}
       </div>
@@ -103,13 +110,14 @@ function InstallAppPrompt() {
           cursor: 'pointer',
           position: 'absolute',
           top: '5px',
-          right: '10px'
+          right: '10px',
         }}
+        aria-label="Close install prompt"
       >
         ❌
       </button>
     </div>
-  )
+  );
 }
 
-export default InstallAppPrompt
+export default InstallAppPrompt;
