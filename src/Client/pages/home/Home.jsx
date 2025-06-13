@@ -31,10 +31,11 @@ const Home = () => {
   return (
     <div >
       <Navbar/> 
+       <InstallAppPrompt/>
+
       {
         isMobile ? <MobileFoodSlider/> : <DisktopFoodSlider/>
       }
-      <InstallAppPrompt/>
        <ExploreMenu/>
        <FoodDisplay/>
        <PopularDishes/>
