@@ -4,6 +4,7 @@ function InstallAppPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null)
   const [showAndroid, setShowAndroid] = useState(false)
   const [showIOS, setShowIOS] = useState(false)
+  const [closed, setClosed] = useState(false)
 
   // Detect iOS
   const isIos = () => {
@@ -44,7 +45,11 @@ function InstallAppPrompt() {
     }
   }
 
-  if (!showAndroid && !showIOS) return null
+  const handleClose = () => {
+    setClosed(true)
+  }
+
+  if ((!showAndroid && !showIOS) || closed) return null
 
   return (
     <div style={{
@@ -53,35 +58,56 @@ function InstallAppPrompt() {
       width: '100%',
       backgroundColor: '#ff5722',
       color: 'white',
-      padding: '10px',
+      padding: '10px 40px 10px 10px',
       textAlign: 'center',
-      zIndex: 1000
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}>
-      {showAndroid && (
-        <>
-          <span>ضيف التطبيق للشاشة الرئيسية 🔥</span>
-          <button
-            onClick={handleInstallClick}
-            style={{
-              marginLeft: '10px',
-              background: 'white',
-              color: '#ff5722',
-              border: 'none',
-              padding: '5px 10px',
-              cursor: 'pointer',
-              borderRadius: '5px'
-            }}
-          >
-            أضف الآن
-          </button>
-        </>
-      )}
+      <div style={{ flex: 1 }}>
+        {showAndroid && (
+          <>
+            <span>ضيف التطبيق للشاشة الرئيسية 🔥</span>
+            <button
+              onClick={handleInstallClick}
+              style={{
+                marginLeft: '10px',
+                background: 'white',
+                color: '#ff5722',
+                border: 'none',
+                padding: '5px 10px',
+                cursor: 'pointer',
+                borderRadius: '5px'
+              }}
+            >
+              أضف الآن
+            </button>
+          </>
+        )}
 
-      {showIOS && (
-        <span>
-          📱 باش تضيف التطبيق، ضغط على <strong>مشاركة</strong> ثم <strong>إضافة إلى الشاشة الرئيسية</strong>.
-        </span>
-      )}
+        {showIOS && (
+          <span>
+            📱 باش تضيف التطبيق، ضغط على <strong>مشاركة</strong> ثم <strong>إضافة إلى الشاشة الرئيسية</strong>.
+          </span>
+        )}
+      </div>
+
+      <button
+        onClick={handleClose}
+        style={{
+          background: 'transparent',
+          border: 'none',
+          color: 'white',
+          fontSize: '20px',
+          cursor: 'pointer',
+          position: 'absolute',
+          top: '5px',
+          right: '10px'
+        }}
+      >
+        ❌
+      </button>
     </div>
   )
 }
