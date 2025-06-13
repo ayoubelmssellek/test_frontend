@@ -1,173 +1,94 @@
-.container {
+/* InstallAppPrompt.css */
+.app-install-prompt {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, #ff8a00, #ff4800);
+  color: white;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  transform: translateY(-100%);
+}
+
+.app-install-prompt.visible {
   transform: translateY(0);
-  transition: transform 0.3s ease-out;
 }
 
-.containerHidden {
-  transform: translateY(100%);
-}
-
-.banner {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 1rem 1rem;
-}
-
-.content {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+.prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   overflow: hidden;
-  border: 1px solid #f0f0f0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
 }
 
-.header {
-  background: linear-gradient(to right, #ff8a00, #ff4800);
-  padding: 1rem;
+.android-prompt,
+.ios-prompt {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
-.iconContainer {
+.prompt-icon svg {
+  width: 10px;
+  height: 10px;
+  fill: white;
+}
+
+.install-button {
   background: rgba(255, 255, 255, 0.2);
-  padding: 8px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
   color: white;
-}
-
-.headerText {
-  color: white;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 2px;
-}
-
-.subtitle {
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.body {
-  padding: 1.5rem 1rem;
-}
-
-.androidPrompt,
-.iosPrompt {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-@media (min-width: 640px) {
-  .androidPrompt,
-  .iosPrompt {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.stepContainer {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.stepIcon {
-  background: #fff8f0;
-  border-radius: 50%;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stepIcon svg {
-  width: 18px;
-  height: 18px;
-  color: #ff8a00;
-}
-
-.stepText {
-  color: #333;
-  font-size: 0.95rem;
-}
-
-.iosSteps {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f8f8f8;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-.iosStep {
-  display: flex;
-  align-items: center;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.iosStep svg {
-  width: 16px;
-  height: 16px;
-  margin: 0 4px;
-}
-
-.installButton {
-  background: linear-gradient(to right, #ff8a00, #ff4800);
-  color: white;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 50px;
   border: none;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 8px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 15px rgba(255, 138, 0, 0.3);
-  transition: all 0.2s ease;
+  transition: background 0.2s;
 }
 
-.installButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 138, 0, 0.4);
+.install-button:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
-.closeButton {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.close-button {
   background: transparent;
   border: none;
-  color: #999;
+  color: white;
   cursor: pointer;
-  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 12px;
+  height: 12px;
 }
 
-.closeButton:hover {
-  color: #666;
+.close-button svg {
+  width: 8px;
+  height: 8px;
+  fill: white;
 }
 
-.closeIcon {
-  width: 20px;
-  height: 20px;
+/* Animation for text scrolling on small screens */
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 480px) {
+  .ios-prompt span {
+    display: inline-block;
+    animation: scrollText 10s linear infinite;
+    padding-left: 100%;
+  }
 }
