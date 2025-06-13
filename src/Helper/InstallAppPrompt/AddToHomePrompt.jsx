@@ -1,4 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { 
+  FiShare2, 
+  FiHome, 
+  FiX,
+  FiDownload,
+  FiPlusSquare
+} from 'react-icons/fi';
+import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2';
 import styles from './InstallAppPrompt.module.css';
 
 function InstallAppPrompt() {
@@ -61,41 +69,47 @@ function InstallAppPrompt() {
   if ((!showAndroid && !showIOS) || closed) return null;
 
   return (
-    <div 
-      className={`${styles.appInstallPrompt} ${isVisible ? styles.visible : ''}`}
-      aria-label="Install app prompt"
-    >
+    <div className={styles.promptContainer}>
       <div className={styles.promptContent}>
         {showAndroid && (
-          <div className={styles.androidPrompt}>
-            <div className={styles.promptIcon}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19,1H5A5.006,5.006,0,0,0,0,6V18a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V6A5.006,5.006,0,0,0,19,1ZM5,3H19a3,3,0,0,1,3,3v8H2V6A3,3,0,0,1,5,3ZM19,21H5a3,3,0,0,1-3-3V16H22v2A3,3,0,0,1,19,21Z"/>
-              </svg>
-            </div>
-            <span>تطبيق طعامنا: </span>
-            <button onClick={handleInstallClick} className={styles.installButton}>
-              تثبيت
+          <div className={styles.promptRow}>
+            <span className={styles.promptIcon}>
+              <HiOutlineDevicePhoneMobile />
+            </span>
+            <span className={styles.instructionText}>
+              أضف التطبيق للشاشة الرئيسية لتسهيل الوصول
+            </span>
+            <button 
+              onClick={handleInstallClick} 
+              className={styles.installButton}
+              aria-label="Install app"
+            >
+              <FiDownload /> تثبيت
             </button>
           </div>
         )}
 
         {showIOS && (
-          <div className={styles.iosPrompt}>
-            <div className={styles.promptIcon}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16.365,1.43a1.5,1.5,0,0,0-1.5,0L5.577,6.893a1.5,1.5,0,0,0-.75,1.3v7.614a1.5,1.5,0,0,0,.75,1.3l9.288,5.463a1.5,1.5,0,0,0,1.5,0l9.288-5.463a1.5,1.5,0,0,0,.75-1.3V8.193a1.5,1.5,0,0,0-.75-1.3ZM18,15a1,1,0,0,1-1,1H13a1,1,0,0,1-1-1V13a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1Z"/>
-              </svg>
-            </div>
-            <span>إضافة تطبيق: مشاركة → إضافة للشاشة الرئيسية</span>
+          <div className={styles.promptRow}>
+            <span className={styles.instructionText} >
+              <span className={styles.text}>اضغط على</span>
+              <span className={styles.icon}><FiShare2 /></span>
+              <span className={styles.text}>ثم</span>
+              <span className={styles.highlight}>"إضافة إلى الشاشة الرئيسية"</span>
+              <span className={styles.icon}><FiHome /></span>
+              <span className={styles.text}>لتثبيت التطبيق</span>
+              <span className={styles.icon}><HiOutlineDevicePhoneMobile /></span>
+            </span>
           </div>
         )}
       </div>
       
-      <button onClick={handleClose} className={styles.closeButton} aria-label="Close prompt">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/>
-        </svg>
+      <button 
+        onClick={handleClose} 
+        className={styles.closeButton} 
+        aria-label="Close prompt"
+      >
+        <FiX size={20} />
       </button>
     </div>
   );
