@@ -8,7 +8,7 @@ import Reviews from '../../components/Reviews/Reviews';
 import LocationSection from '../../components/OurLocation/useUserLocation';
 import MobileFoodSlider from '../../components/header/MobileFoodSlider/MobileFoodSlider';
 import PopularDishes from '../../components/PopularDishes/PopularDishes';
-import InstallAppPrompt from '../../../Helper/InstallAppPrompt/AddToHomePrompt';
+import InstallAppPrompt from '../../../Helper/AddToHomePrompt/AddToHomePrompt';
 
 const Home = () => { 
  const [isMobile,setIsMobile]=useState(window.innerWidth<=576)
