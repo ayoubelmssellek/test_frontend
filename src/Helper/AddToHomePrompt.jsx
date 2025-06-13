@@ -2,14 +2,31 @@ import { useEffect, useState } from 'react'
 
 function InstallAppPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null)
-  const [show, setShow] = useState(false)
+  const [showAndroid, setShowAndroid] = useState(false)
+  const [showIOS, setShowIOS] = useState(false)
+
+  // Detect iOS
+  const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+    return /iphone|ipad|ipod/.test(userAgent)
+  }
+
+  // Detect if in Safari
+  const isInStandaloneMode = () =>
+    'standalone' in window.navigator && window.navigator.standalone
 
   useEffect(() => {
+    // Android support
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault()
       setDeferredPrompt(e)
-      setShow(true)
+      setShowAndroid(true)
     })
+
+    // iOS manual guide
+    if (isIos() && !isInStandaloneMode()) {
+      setShowIOS(true)
+    }
   }, [])
 
   const handleInstallClick = () => {
@@ -22,12 +39,12 @@ function InstallAppPrompt() {
           console.log('User dismissed A2HS prompt')
         }
         setDeferredPrompt(null)
-        setShow(false)
+        setShowAndroid(false)
       })
     }
   }
 
-  if (!show) return null
+  if (!showAndroid && !showIOS) return null
 
   return (
     <div style={{
@@ -40,21 +57,31 @@ function InstallAppPrompt() {
       textAlign: 'center',
       zIndex: 1000
     }}>
-      <span>ضيف التطبيق للشاشة الرئيسية 🔥</span>
-      <button
-        onClick={handleInstallClick}
-        style={{
-          marginLeft: '10px',
-          background: 'white',
-          color: '#ff5722',
-          border: 'none',
-          padding: '5px 10px',
-          cursor: 'pointer',
-          borderRadius: '5px'
-        }}
-      >
-        أضف الآن
-      </button>
+      {showAndroid && (
+        <>
+          <span>ضيف التطبيق للشاشة الرئيسية 🔥</span>
+          <button
+            onClick={handleInstallClick}
+            style={{
+              marginLeft: '10px',
+              background: 'white',
+              color: '#ff5722',
+              border: 'none',
+              padding: '5px 10px',
+              cursor: 'pointer',
+              borderRadius: '5px'
+            }}
+          >
+            أضف الآن
+          </button>
+        </>
+      )}
+
+      {showIOS && (
+        <span>
+          📱 باش تضيف التطبيق، ضغط على <strong>مشاركة</strong> ثم <strong>إضافة إلى الشاشة الرئيسية</strong>.
+        </span>
+      )}
     </div>
   )
 }
