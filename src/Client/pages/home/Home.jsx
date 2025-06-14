@@ -31,7 +31,9 @@ const Home = () => {
   return (
     <div >
       <Navbar/> 
-       <InstallAppPrompt/>
+      {
+        isMobile ? <InstallAppPrompt/> : null
+      }
 
       {
         isMobile ? <MobileFoodSlider/> : <DisktopFoodSlider/>
