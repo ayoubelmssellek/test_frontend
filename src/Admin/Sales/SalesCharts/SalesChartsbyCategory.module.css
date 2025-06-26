@@ -1,0 +1,95 @@
+/* SalesChartsbyType.module.css */
+:root {
+    --card-bg: #ffffff;
+    --text-color: #212529 !important;
+    --border-color: #dee2e6;
+    --hover-bg: #f8f9fa;
+    --input-bg: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --legend-text-color: #4f46e5;
+    --chart-text-color: #fff;
+  }
+  
+  [data-theme="dark"] {
+    --card-bg: #000d15;
+    --text-color: #ffffff !important;
+    --border-color: #001a2c;
+    --hover-bg: #001a2cb2;
+    --input-bg: #07080a;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --legend-text-color: #4c70ff;
+    --chart-text-color: #fff;
+  }
+  .chartContainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .titleAndFilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chartTitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .filterButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .filterButton {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .filterButton:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  .salesChartsSection {
+    display: flex;
+    width: 100%;
+
+  }
+  
+  @media (max-width: 768px) {
+    .salesChartsSection {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .salesChartsSection > div {
+      width: 100% !important;
+    }
+  }
+  
+  /* Global override for ApexCharts */
+  :global(.apexcharts-legend-series) span {
+    color: var(--legend-text-color);
+  }
+  
+  
+  :global(.apexcharts-datalabel) {
+    fill: var(--text-color) !important;
+  }

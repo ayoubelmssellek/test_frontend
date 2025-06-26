@@ -1,0 +1,128 @@
+/* Badges.module.css */
+:root {
+    --accent-color: #1a73e8 !important;
+  }
+  
+  [data-theme="dark"] {
+
+    --accent-color: #2196F3;
+
+  }
+.BadgeContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (max-width: 768px) {
+  
+    .BadgeContainer {
+      grid-template-columns: 1fr;
+    }
+}  
+.badgeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+
+.badgeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.badgeIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+    position: relative;
+}
+
+.notificationBadge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--danger-color);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.titleAndNumber {
+    text-align: right;
+}
+
+.cardTitle {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.cardValue {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 5px 0 0;
+    font-weight: 700;
+}
+
+.growthText {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin: 10px 0 0;
+}
+
+/* Specific badge colors */
+.products {
+    background-color: var(--danger-color);
+}
+
+.orders {
+    background-color: var(--accent-color);
+}
+
+.customers {
+    background-color: var(--success-color);
+}
+
+.reviews {
+    background-color: #a78bfa;
+}
+
+.sales {
+    background-color: #43A047;
+}
+
+[data-theme="dark"] {
+    .reviews {
+        background-color: #7e57c2;
+    }
+    
+    .sales {
+        background-color: #00C853;
+    }
+}

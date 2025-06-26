@@ -1,0 +1,280 @@
+:root {
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #64748b;
+  --border-color: #e5e7eb;
+  --hover-bg: #f8fafc;
+  --success: #16a34a;
+  --primary: #235cff !important;
+  --success-bg: #dcfce7;
+  --danger-bg: #fee2e2;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --icon-color: #94a3b8;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-color: #374151;
+  --hover-bg: #374151;
+  --primary: #235cff;
+  --success: #166534;
+  --success-bg: #1b3b2a;
+  --danger-bg: #3b1a1a;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --icon-color: #64748b;
+}
+
+.salesDashboard {
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: var(--text-primary);
+}
+
+.analyticsGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .analyticsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .analyticsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.analyticsCard {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.cardValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.trendIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cardIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--icon-color);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-color);
+}
+
+.searchContainer {
+  position: relative;
+  flex: 1;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--icon-color);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 10%);
+}
+
+.dateFilter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendarIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--icon-color);
+}
+
+.dateSelect {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.salesTable {
+  background: var(--card-bg);
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.table th {
+  background: var(--hover-bg);
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tableRow:hover {
+  background: var(--hover-bg);
+}
+
+.tableData {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.completed {
+  background: var(--success-bg);
+  color: #029327;
+}
+
+.refunded {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.noResults {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  background: var(--card-bg);
+  border-radius: 0.8rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Add RTL Support */
+[dir="rtl"] .filters {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .searchIcon {
+  right: 1rem;
+  left: auto;
+}
+
+[dir="rtl"] .searchInput {
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+}
+
+[dir="rtl"] .dateFilter {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .table th,
+[dir="rtl"] .tableData {
+  text-align: right;
+}
+
+[dir="rtl"] .salesTable {
+  direction: rtl;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .filters {
+    flex-direction: column;
+  }
+  
+  [dir="rtl"] .searchIcon {
+    right: 1rem;
+    left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+  
+  .salesDashboard {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+}

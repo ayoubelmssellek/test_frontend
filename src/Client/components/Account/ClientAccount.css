@@ -1,0 +1,200 @@
+.client-account-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    margin-top: 75px;
+  }
+  
+  /* Welcome Banner - Always in row */
+  .welcome-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    direction: rtl;
+  }
+  
+  .welcome-text {
+    flex: 1;
+    min-width: 60%;
+  }
+  
+  .welcome-text h1 {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .welcome-text p {
+    font-size: 1.2rem;
+    color: #636e72;
+  }
+  
+  .food-illustration {
+    flex-shrink: 0;
+  }
+  
+  .food-illustration img {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Quick Actions Grid */
+  .quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .action-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #2d3436;
+    text-decoration: none;
+  }
+  
+  .action-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .action-icon {
+    font-size: 2.5rem;
+    color: #e17055;
+    margin-bottom: 1rem;
+  }
+  
+  /* Guest Content */
+  .guest-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column ;
+    text-align: center;
+
+    padding: 4rem 0;
+    gap:    3px;
+  }
+  
+  .guest-content h2 {
+    font-size: 3rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+  }
+  .guest-content p {
+    font-size: 2rem;
+  }
+  .auth-button {
+    width: 200px;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    background-color: tomato;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    font-size: large;
+  }
+  
+
+
+  
+  .auth-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .welcome-text h1 {
+      font-size: 2rem;
+    }
+    
+    .food-illustration img {
+      width: 180px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .welcome-banner {
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+    
+    .welcome-text h1 {
+      font-size: 1.8rem;
+    }
+    
+    .welcome-text p {
+      font-size: 1rem;
+    }
+    
+    .food-illustration img {
+      width: 140px;
+    }
+    
+    .action-card {
+      padding: 1.5rem;
+    }
+    .client-account-container{
+        margin-top: 45px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .welcome-banner {
+      padding: 1rem;
+      gap: 1rem;
+    }
+    
+    .welcome-text h1 {
+      font-size: 1.5rem;
+    }
+    
+    .welcome-text p {
+      font-size: 1.3rem;
+    }
+    
+    .food-illustration img {
+      width: 100px;
+    }
+    
+
+    .quick-actions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .welcome-banner {
+      padding: 0.8rem;
+      gap: 0.8rem;
+    }
+    
+    .welcome-text h1 {
+      font-size: 1.3rem;
+    }
+    
+    .welcome-text p {
+        font-size: 0.9rem;    }
+    
+    .food-illustration img {
+      width: 80px;
+    }
+    
+    .guest-hero h1 {
+      font-size: 2.2rem;
+    }
+  }

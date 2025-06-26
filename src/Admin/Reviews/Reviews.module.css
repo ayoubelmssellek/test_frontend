@@ -1,0 +1,377 @@
+:root {
+  --bg-color: #f5f7fb;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #6c757d;
+  --border-color: #e9ecef;
+  --hover-bg: #f8f9fa;
+  --accent-blue: #3b82f6;
+  --success-bg: #dcfce7;
+  --success-color: #16a34a;
+  --danger-bg: #fee2e2;
+  --danger-color: #dc2626;
+  --rating-color: #ffd700;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --card-bg: #000d15;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: #404040;
+  --hover-bg: #000d15c2;
+  --accent-blue: #2196F3;
+  --success-bg: #1b3b2a;
+  --success-color: #4CAF50;
+  --danger-bg: #3b1a1a;
+  --danger-color: #f44336;
+  --rating-color: #ffc107;
+  --total-bg: #447c9e38;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.pushMainContent {
+  margin-left: 175px;
+}
+
+.ml20 {
+  margin-left: 50px;
+}
+
+.pages {
+  padding: 20px;
+  margin-top: 2rem;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.statBadge {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statBadge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.total {
+  background-color: var(--total-bg);
+}
+
+.total .statIcon {
+  color: var(--accent-blue);
+}
+
+.accepted {
+  background: var(--success-bg);
+}
+
+.accepted .statIcon {
+  color: var(--success-color);
+}
+
+.rejected {
+  background: var(--danger-bg);
+}
+
+.rejected .statIcon {
+  color: var(--danger-color);
+}
+
+/* New Pending Status Style */
+.pendingStatus {
+  background:#fffdc1;
+  padding: 0.5rem 1rem;
+  color: #ffa500;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.productsContainer {
+  margin-top: 30px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.productsTable th {
+  background-color: var(--hover-bg);
+  font-weight: 600;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.productsTable td {
+  padding: 1rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.productsTable tr:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.productsTable tr:hover {
+  background-color: var(--hover-bg);
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: var(--border-color);
+  font-size: 1.2rem;
+}
+
+.filled {
+  color: var(--rating-color);
+}
+
+
+.productImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.acceptedStatus {
+  background: var(--success-bg); 
+  padding: 0.5rem 1rem;
+  color: var(--success-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  
+}
+
+.rejectedStatus {
+  background: var(--danger-bg);
+  padding: 0.5rem 1rem;
+  color: var(--danger-color);;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.acceptRejectIcons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.acceptRejectIcons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.acceptRejectIcons button:hover {
+  transform: scale(1.1);
+}
+
+.noProducts {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+/* Table Columns: Updated for Actions and Status */
+.productsTable th:nth-child(7),
+.productsTable td:nth-child(7) {
+  /* Actions Column */
+  text-align: left;
+}
+
+.productsTable th:nth-child(8),
+.productsTable td:nth-child(8) {
+  /* Status Column */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .ml20 {
+    margin-left: 1rem;
+  }
+  .pages {
+    padding: 1rem;
+  }
+  .statsContainer {
+    grid-template-columns: 1fr;
+  }
+  .productsTable th,
+  .productsTable td {
+    padding: 0.75rem;
+  }
+  .productImage {
+    width: 50px;
+    height: 50px;
+  }
+  .statNumber {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .pushMainContent {
+    margin-left: 0;
+  }
+  .productsTable th:nth-child(4),
+  .productsTable td:nth-child(4),
+  .productsTable th:nth-child(6),
+  .productsTable td:nth-child(6) {
+    display: none;
+  }
+  .acceptRejectIcons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .statBadge {
+    padding: 1rem;
+  }
+  .statIcon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+  }
+  .statNumber {
+    font-size: 1.6rem;
+  }
+}
+
+/* Add RTL Support */
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .statIcon {
+  margin-right: 0;
+  margin-left: 1.5rem;
+}
+
+[dir="rtl"] .productsTable th,
+[dir="rtl"] .productsTable td {
+  text-align: right;
+}
+
+[dir="rtl"] .productsTable {
+  direction: rtl;
+}
+
+[dir="rtl"] .statContent {
+  text-align: right;
+}
+
+[dir="rtl"] .content {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .statIcon {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  [dir="rtl"] .pushMainContent {
+    margin-right: 0;
+  }
+  [dir="rtl"] .acceptRejectIcons {
+    flex-direction: column-reverse;
+  }
+}
+
+.statusContainer {
+  display: flex;
+  align-items: left;
+  gap: 10px;
+}
+
+.restoreButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.restoreButton:hover {
+  transform: scale(1.1);
+}
+.pending{
+}

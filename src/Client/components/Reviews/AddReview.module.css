@@ -1,0 +1,262 @@
+/* addReview.module.css */
+.reviewContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row-reverse;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: #fff0ee;
+  color: #ff6347;
+}
+
+.backIcon {
+  font-size: 1.2rem;
+}
+
+.reviewTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.productSelection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.dropdownContainer {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.dropdownTrigger {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-direction: row-reverse;
+}
+
+.dropdownTrigger:hover {
+  border-color: #ff6347;
+}
+
+.chevron {
+  margin-left: 0;
+  margin-right: auto;
+  transform: rotate(180deg);
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.dropdownMenu {
+  position: absolute;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.dropdownScrollContainer {
+  padding: 0.5rem;
+}
+
+.dropdownItem {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: none;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  flex-direction: row-reverse;
+}
+
+.dropdownItem:hover {
+  background: #fff5f4;
+}
+
+.productThumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  border: 1px solid #eee;
+}
+
+.selectedProduct {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row-reverse;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: right;
+}
+
+.productName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.orderMeta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.ratingSection {
+  margin-bottom: 2rem;
+}
+
+.starRating {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-direction: row-reverse;
+}
+
+.star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: 2rem;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+}
+
+.star.active {
+  color: #ff6347;
+}
+
+.star:hover {
+  transform: scale(1.1);
+  color: #ff4500;
+}
+
+.reviewContent {
+  margin-bottom: 2rem;
+}
+
+.reviewTextarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  transition: all 0.2s ease;
+  text-align: right;
+  direction: rtl;
+  line-height: 1.6;
+}
+
+.reviewTextarea:focus {
+  outline: none;
+  border-color: #ff6347;
+  box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.1);
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #ff5236;
+}
+
+.errorMessage {
+  color: #dc3545;
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .reviewContainer {
+    padding: 0 1rem;
+  }
+  
+  .reviewTitle {
+    font-size: 1.5rem;
+  }
+  
+  .productThumbnail {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .star {
+    font-size: 1.8rem;
+  }
+}

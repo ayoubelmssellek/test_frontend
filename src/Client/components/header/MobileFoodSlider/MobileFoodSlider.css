@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Chicle&family=Merienda:wght@300..900&display=swap');
+
+.mobile-food-slider {
+    height: 25vh;
+    max-height: 200px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.mobileslide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    flex: 0 0 100%;
+    
+}
+
+.mobileslide .mobileslideimg {
+    position: absolute;
+    top: 10px;
+    right: 30px; 
+    width: 40%;
+    height: 85%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.mobileslide .mobileslideimg img {
+    border-radius: 10%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobileslide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('headerimg.jpg') no-repeat center center/cover;
+    z-index: 1;
+}
+
+.text-overlay {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    flex-direction: column; 
+    position: absolute;
+    left: 10px; 
+    gap: 5px;
+    top: 15%;
+    z-index: 3;
+    width: 45%;
+    direction: ltr;
+}
+.prixandbutton{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    direction: rtl;
+}
+.button-Order {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    background-color: #ff9f43;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button-order:hover {
+    background-color: #e5533d;
+}
+
+.Product-category {
+    display: inline-block;
+    background: #ff9f43;
+    color: white;
+    padding: 0.2rem 0.2rem;
+    border-radius: 20px;
+    font-size: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}   
+
+.Product-name {
+ font-family: "Chicle", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 5PX 5PX 5PX black;
+}
+.slide-Price{
+      display: flex;
+      color: #fff;
+      direction: ltr;
+       font-family: "Chicle", sans-serif;
+      gap: 5px;
+}
+.progress-dots {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.3);
+}
+.discount-label {
+  position: absolute;
+  top: 14px;
+  left: 5px;
+  background: #e74c3c;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-5deg);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: rotate(-30deg) scale(1); }
+  50% { transform: rotate(-30deg) scale(1.05); }
+  100% { transform: rotate(-30deg) scale(1); }
+}

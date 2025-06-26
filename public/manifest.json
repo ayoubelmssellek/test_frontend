@@ -1,0 +1,21 @@
+{
+  "short_name": "Gusto",
+  "name": "Gusto Dakhla",
+  "icons": [
+    {
+      "src": "/gustologo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/gustologo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff5722",
+  "description": "أفضل تطبيق لطلب الطعام في الداخلة مع توصيل سريع وجودة عالية"
+}

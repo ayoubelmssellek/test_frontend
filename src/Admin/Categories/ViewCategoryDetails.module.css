@@ -1,0 +1,82 @@
+.content {
+    display: flex;
+    min-height: 100vh;
+}
+
+.allBadges {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+.pushMainContent {
+    margin-left: 175px;
+}
+
+.ml20 {
+    margin-left: 50px;
+}
+
+/* RTL-specific adjustments */
+[dir="rtl"] .pushMainContent {
+    margin-right: 175px;
+    margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+    margin-right: 50px;
+    margin-left: 0;
+}
+
+.pages {
+    padding: 20px;
+}
+
+.viewMoreAboutProduct {
+    margin-top: 20px;
+}
+
+.tableContainer {
+    overflow-x: auto;
+}
+
+.productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+.productsTable th {
+    background-color: #e3e2e2;
+    color: #000;
+    padding: 12px;
+    text-align: left;
+}
+
+.productsTable td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* RTL Table Alignment */
+[dir="rtl"] .productsTable th,
+[dir="rtl"] .productsTable td {
+    text-align: right;
+}
+
+/* RTL Image Alignment */
+.productsTable img {
+    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+[dir="rtl"] .productsTable img {
+    margin-right: 0;
+    margin-left: auto;
+}
+/* RTL Support for Navbar */
+[dir="rtl"] .navbar {
+    text-align: right;
+}

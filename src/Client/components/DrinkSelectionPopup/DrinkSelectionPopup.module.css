@@ -1,0 +1,242 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+  }
+  
+  /* Checkout Button */
+  .checkoutBtn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .checkoutBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Modal Overlay */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content */
+  .modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 70vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    direction: ltr;
+  }
+  
+  /* Drink List */
+  .drinkList {
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-right: 10px;
+    max-height: 70vh;
+  }
+  
+  /* Drink Item */
+  .drinkItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Drink Image */
+  .drinkImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  /* Drink Info */
+  .drinkInfo {
+    flex-grow: 1;
+    min-width: 120px;
+  }
+  
+  .drinkName {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  .drinkPrice {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Quantity Controls */
+  .drinkControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  
+  .quantity {
+    min-width: 35px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  /* Complete Order Button */
+  .checkoutDrinksBtn {
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  .checkoutDrinksBtn:hover {
+    background-color: #218838;
+  }
+  
+  /* Close Button */
+  .closeBtn {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+  }
+  .IconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.CartButton {
+  background: tomato;
+  color: white;
+}
+
+.CartButton:hover {
+  background: #d81b60;
+}
+.QuantityControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.QuantityButton {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.QuantityButton:hover {
+  background: rgba(233, 30, 99, 0.1);
+}
+  /* Mobile Responsive */
+  @media (max-width: 480px) {
+    .checkoutBtn {
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+  
+   
+  
+    .drinkImage {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .drinkControls {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+  
+  
+    .checkoutDrinksBtn {
+      font-size: 1.1rem;
+      padding: 15px;
+    }
+  
+    .title {
+      font-size: 1.3rem;
+    }
+  
+    .modalContent {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    .drinkList {
+      max-height: 60vh;
+    }
+  }
+  
+  /* Scrollbar Styling */
+  .drinkList::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .drinkList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .drinkList::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .drinkList::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

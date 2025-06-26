@@ -1,0 +1,394 @@
+/* navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0.8rem 2rem;
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.gustologo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff6b35;
+  transition: transform 0.3s ease;
+}
+
+.gustologo:hover {
+  transform: scale(1.05);
+}
+
+.logoText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff6b35;
+  letter-spacing: -0.5px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.navLink:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff6b35;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ff6b35;
+}
+
+.navLink:hover:after {
+  width: 100%;
+}
+
+.navLink.active {
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+.navLink.active:after {
+  width: 100%;
+}
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.languageSelector {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #f8f8f8;
+  border-radius: 50px;
+  padding: 0.3rem;
+}
+
+.langBtn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.langBtn:hover {
+  background-color: #e9e9e9;
+}
+
+.langBtn.activeLang {
+  background-color: #ff6b35;
+  color: white;
+}
+
+.cartIconContainer {
+  position: relative;
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f8f8f8;
+  transition: all 0.2s ease;
+}
+
+.cartLink:hover {
+  background-color: #ffece5;
+}
+
+.cartIcon {
+  font-size: 1.3rem;
+  color: #ff6b35;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  background-color: #ff6b35;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 50%;
+  padding: 0.1rem;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.2s ease;
+  padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+  border-radius: 50px;
+  background-color: #f8f8f8;
+}
+
+.userProfile:hover {
+  background-color: #ffece5;
+}
+
+.userAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff9e71 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.userName {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.loginBtn  {
+  background-color: #ff6b35;
+  border: none;
+  border-radius: 6px;
+  padding: 5px;
+  color:wheat;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.loginBtn {
+  background-color: #e05a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Mobile Navigation */
+.mobileNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.8rem 0;
+  display: none;
+}
+
+.mobileNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #777;
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+  position: relative;
+  width: 20%;
+}
+
+.mobileNavItem:hover {
+  color: #ff6b35;
+}
+
+.mobileNavItem.active {
+  color: #ff6b35;
+}
+
+.cartWrapper {
+  position: relative;
+  display: flex;
+}
+
+.mobileCartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  background-color: #ff6b35;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+/* Mobile Header - Language Selector */
+.mobileHeaderLanguage {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 80px;
+  z-index: 1001;
+}
+
+.mobileLangSelect {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .navLinks {
+    gap: 1.2rem;
+  }
+  
+  .navbarActions {
+    gap: 1rem;
+  }
+  
+  .userName {
+    display: none;
+  }
+  
+  .userProfile {
+    padding: 0;
+    background: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .navLinks,
+  .navbarActions 
+  .navbarActions {
+    display: none;
+  }
+   .cartIconContainer{
+    display: none;
+   }
+  .languageSelector{
+    padding: 1px;
+    gap: 1px;
+  }
+  .mobileNav {
+    display: flex;
+  }
+  
+  .logoText {
+    font-size: 1.5rem;
+  }
+  
+  
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.4rem 1rem;
+  }
+  
+  .gustologo {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .logoText {
+    font-size: 1.3rem;
+  }
+  
+  .mobileNavItem span {
+    font-size: 0.65rem;
+  }
+  
+  .mobileLangSelect {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+  
+  .mobileHeaderLanguage {
+    right: 70px;
+  }
+    .mobileHeaderLanguage {
+    display: block;
+  }
+    .cartIconContainer{
+    display: none;
+   }
+  .languageSelector{
+    padding: 1px;
+    gap: 1px;
+  }
+}

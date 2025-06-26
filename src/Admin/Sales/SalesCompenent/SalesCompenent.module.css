@@ -1,0 +1,72 @@
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #1a1a1a;
+    --border-color: #e5e7eb;
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-primary: #ffffff;
+    --border-color: #374151;
+  }
+  
+  .content {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+  }
+  
+  .allBadges {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  .pushMainContent {
+    margin-left: 175px;
+  }
+  .ml20 {
+    margin-left: 50px;
+  }
+  
+  .pages {
+    padding: 20px;
+  }
+  
+
+  
+  .salesTableSection {
+    background: var(--bg-color);
+    border-radius: 8px;
+
+  }
+
+  /* Add RTL Support */
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .salesTableSection {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .content {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .pushMainContent {
+    margin-right: 0;
+  }
+  
+  [dir="rtl"] .ml20 {
+    margin-right: 1rem;
+  }
+}

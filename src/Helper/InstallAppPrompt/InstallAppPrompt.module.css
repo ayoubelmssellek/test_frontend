@@ -1,0 +1,162 @@
+.promptContainer {
+  position: sticky;
+  top: 55px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #ff8a00, #ff4800);
+  color: white;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  z-index: 900;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.promptContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.promptRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.promptIcon {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.instructionText {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.text {
+  margin: 0 2px;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #fff;
+  margin: 0 3px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  font-size: 1.1rem;
+}
+
+.installButton {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 15px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  backdrop-filter: blur(2px);
+  flex-shrink: 0;
+}
+
+.installButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  .promptContainer {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .instructionText {
+    gap: 3px;
+  }
+  
+  .text, .highlight {
+    margin: 0 1px;
+  }
+  
+  .installButton {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .icon {
+    font-size: 1rem;
+    margin: 0 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promptContainer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .promptRow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-right: 10px !important;
+  }
+  
+  .instructionText {
+    direction: rtl;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 2px;
+    right: 7px;
+  }
+}

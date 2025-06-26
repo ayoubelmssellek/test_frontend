@@ -1,0 +1,149 @@
+.pageContainer {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px;
+  margin-top: 0 !important ;
+}
+
+.contentWrapper {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+}
+
+.errorCode {
+  font-size: 15rem;
+  font-weight: bold;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: -2rem;
+  line-height: 1;
+}
+
+.errorMessage {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.descriptionText {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeButton {
+  background: #fff;
+  color: #ff6b6b;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.homeButton:hover {
+  transform: translateY(-3px);
+  background: #ffe8e8;
+}
+
+.foodIcon {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 2rem auto;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.foodIcon::before {
+  content: '🍕';
+  font-size: 8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.decoration {
+  position: absolute;
+  opacity: 0.3;
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.decoration:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  animation-duration: 4s;
+}
+
+.decoration:nth-child(2) {
+  top: 70%;
+  right: 15%;
+  animation-duration: 5s;
+}
+
+.decoration:nth-child(3) {
+  top: 40%;
+  left: 20%;
+  animation-duration: 3.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+  .errorCode {
+    font-size: 10rem;
+  }
+  
+  .errorMessage {
+    font-size: 1.5rem;
+  }
+  
+  .descriptionText {
+    font-size: 1rem;
+  }
+  
+  .foodIcon {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .foodIcon::before {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 15px;
+  }
+  
+  .errorCode {
+    font-size: 8rem;
+  }
+  
+  .errorMessage {
+    font-size: 1.2rem;
+  }
+}

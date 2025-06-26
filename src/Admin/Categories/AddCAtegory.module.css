@@ -1,0 +1,101 @@
+.addCategoryModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  .fileInput {
+    display: none;
+  }
+  
+  .fileUploadLabel {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+  }
+  
+  .fileUploadLabel span {
+    color: #666;
+  }
+  .addCategoryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .formTitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .errorMessage {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .formGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  .submitButton.active {
+    background-color: #0056b3;
+  }
+  
+  .submitButton.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .cancelButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  .cancelButton:hover {
+    background-color: #c82333;
+  }
+  

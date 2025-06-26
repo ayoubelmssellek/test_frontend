@@ -1,0 +1,204 @@
+/* AdminProfile.module.css */
+.profileCard {
+  width: 100%;
+  margin: 60px auto 0;
+  background: var(--input-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.gestingManager{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.AddManagerButton{
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cardDescription {
+  margin: 8px 0 0;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.875rem;
+}
+
+.cardContent {
+  padding: 24px;
+}
+
+.formGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.875rem;
+}
+
+.formRow input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.formRow input:read-only {
+  background-color: var(--table-header-bg);
+  cursor: not-allowed;
+}
+
+.cardFooter {
+  padding: 24px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editButton {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.editButton:hover {
+  background-color: var(--hover-bg);
+}
+
+.saveButton {
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: white;
+}
+
+
+
+.iconSpacing {
+  margin-right: 8px;
+  color: inherit;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+/* Keep existing layout styles */
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.pushMainContent {
+  margin-left: 175px;
+}
+
+.ml20 {
+  margin-left: 50px;
+}
+
+.pages {
+  padding: 1.5rem;
+}
+
+/* Add RTL Support */
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ml20 {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .iconSpacing {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+[dir="rtl"] .buttonIcon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+[dir="rtl"] .formRow label,
+[dir="rtl"] .formRow input {
+  text-align: right;
+}
+
+[dir="rtl"] .cardFooter {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .content {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .pushMainContent {
+    margin-right: 0;
+  }
+  
+  [dir="rtl"] .profileCard {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+

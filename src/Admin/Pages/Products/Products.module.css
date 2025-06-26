@@ -1,0 +1,404 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --input-bg: #ffffff;
+  --border-color: #dee2e6;
+  --hover-bg: #f8f9fa;
+  --table-header-bg: #f8f9fa;
+  --accent-color: #1a73e8;
+  --danger-color: #dc3545;
+  --success-color: #4CAF50;
+}
+
+[data-theme="dark"] {
+  --bg-color:  #07080a !important;
+  --text-color: #ffffff;
+  --input-bg: #000d15;
+  --border-color: #001a2c;
+  --hover-bg: #001a2cb2;
+  --table-header-bg: #000d15;
+  --accent-color: #2196F3;
+  --danger-color: #ff4444;
+  --success-color: #00C853;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin 0.3s ease;
+}
+
+.pushMainContent {
+  margin-inline-start: 175px;
+}
+
+.ml20 {
+  margin-inline-start: 50px;
+}
+
+.pages {
+  padding: 20px;
+}
+
+.productsContainer {
+  border-radius: 8px;
+  margin-top: 70px;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  padding: 5px;
+
+  transition: all 0.3s ease;
+}
+
+.filterInput {
+  flex: 1 1 250px;
+  min-width: 200px;
+  position: relative;
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectWrapper select {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  appearance: none;
+  font-size: 14px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.inputIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.clearButton {
+  background: var(--input-bg);
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clearButton:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+.inputWrapper label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  transition: 0.2s ease all;
+  background: var(--input-bg);
+  padding: 0 5px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.inputWrapper input:focus ~ label,
+.inputWrapper input:not(:placeholder-shown) ~ label {
+  top: 0;
+  left: 10px;
+  font-size: 0.75rem;
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.tableProductsContainer {
+  margin-top: 20px;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--input-bg);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.productsTable th {
+  background-color: var(--table-header-bg);
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.productsTable td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.productsTable tr:hover {
+  background-color: var(--hover-bg);
+}
+
+.productImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+/* العنصر الأب الذي يحتوي على الزر */
+.popup {
+  position: relative; /* هذا يضمن أن الـ dropdown سيتم تحديد موقعه بناءً على هذا العنصر */
+  display: inline-block;
+}
+
+/* الزر الذي يفتح الـ dropdown */
+.burger {
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* الـ dropdown نفسه */
+.popupWindow {
+  position: absolute;
+  right: 0;
+  top: 100%; /* تظهر أسفل الزر */
+  z-index: 1000; /* تأكد من أن الـ dropdown يظهر فوق العناصر الأخرى */
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  margin-top: 5px; /* المسافة بين الزر والـ dropdown */
+  display: none; /* افتراضياً، الـ dropdown غير ظاهر */
+}
+
+/* عندما يكون الـ dropdown مفتوحًا */
+.popupWindow.open {
+  display: block;
+}
+
+
+.popupWindow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popupWindow  button {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+}
+.popupWindow  button:hover {
+ opacity: .7;
+}
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s;
+  width: fit-content;
+}
+.statusButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.statusAvalaible {
+  background-color: rgb(209, 250, 229);
+  color: var(--success-color);
+}
+.statusOutOfStock {
+  background-color: rgb(255, 192, 192);
+  color: var(--danger-color);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1.2rem 0;
+  background-color: var(--table-header-bg);
+  border-radius: 8px;
+}
+
+.pagination button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.noProducts {
+  text-align: center;
+  color: var(--text-color);
+  padding: 40px 20px;
+  background: var(--bg-color);
+  border-radius: 8px;
+  margin: 20px 0;
+  opacity: 0.7;
+}
+
+
+/* Add this at the end of your CSS file */
+
+/* RTL Specific Styles */
+[dir="rtl"] .productsTable th,
+[dir="rtl"] .productsTable td {
+  text-align: right;
+}
+
+[dir="rtl"] .inputWrapper label {
+  right: 15px;
+  left: auto;
+}
+
+[dir="rtl"] .inputIcon {
+  left: 15px;
+  right: auto;
+}
+
+[dir="rtl"] .selectIcon {
+  left: 15px;
+  right: auto;
+}
+
+[dir="rtl"] .popupWindow {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .pagination {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .filterInput {
+  direction: ltr; /* Keep inputs LTR even in RTL layout */
+}
+
+
+[dir="rtl"] .productsTable tr {
+  direction: rtl;
+}
+
+
+[dir="rtl"] .burger {
+  transform: rotateY(180deg);
+}
+
+[dir="rtl"] .clearButton {
+  flex-direction: row-reverse;
+}
+
+/* Flip chevron icons in RTL */
+[dir="rtl"] .selectIcon {
+  transform: translateY(-50%) rotateY(180deg);
+}
+
+/* RTL Typography */
+[dir="rtl"] {
+  font-family: 'Tahoma', 'Arial', sans-serif; /* Common Arabic font stack */
+  letter-spacing: 0;
+}
+
+/* Flip margin for the sidebar push effect */
+[dir="rtl"] .pushMainContent {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+/* Adjust input padding for RTL */
+[dir="rtl"] .inputWrapper input {
+  padding: 10px 15px 10px 35px;
+}
+
+[dir="rtl"] .selectWrapper select {
+  padding: 10px 15px 10px 35px;
+}
+
+[dir="rtl"] .popupWindow  button {
+  text-align: right;
+  padding: 10px 10px;
+}
+[dir="rtl"] .popupWindow {
+  left: 0;
+  right: auto;
+}

@@ -1,0 +1,262 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  padding: 1rem;
+  direction: ltr;
+}
+
+.containerContent {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.imageContainer {
+  flex: 1;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  min-height: 400px;
+  max-height: 500px;
+  min-width: 500px;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+.backButton {
+  background: none;
+  border: none;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e17055;
+  font-size: 1.3rem;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.backButton:hover {
+  background: #f8f9fa;
+  transform: translateX(-5px);
+}
+
+.backIcon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+  transform: scaleX(-1)
+
+}
+
+.infoSection {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 1rem;
+
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.favoriteButton.active {
+  color: red;
+  background: #ffe8e8;
+}
+
+.productTitle {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.productCategory {
+  display: inline-block;
+  background: #ffe8e8;
+  color: #e91e63;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  width: 100px;
+  text-align: center;
+}
+
+.productDescription {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.priceSection {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.OldPrice {
+  color: #888;
+  font-size: 14px;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.price {
+  font-size: 2rem;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.extraItemsSection {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.extraItemsTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  direction: rtl;
+}
+
+.extraItemsContainer {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.extraItem {
+  position: relative;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.extraItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.addExtraButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background: #e91e63;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.cartButton {
+  background: tomato;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.cartButton p {
+  font-size: larger;
+}
+
+.cartButton:hover {
+  background: #d81b60;
+  transform: translateY(-2px);
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.quantityButton {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.quantityButton:hover {
+  background: rgba(233, 30, 99, 0.1);
+}
+
+.quantity {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 30px;
+  text-align: center;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 4rem;
+  color: #666;
+}
+
+.errorTitle {
+  color: #e91e63;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,88 @@
+/* OffersTabs.module.css */
+
+.tableContainer {
+  background: var(--card-bg);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px var(--shadow-color);
+  margin-top: 2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.table thead {
+  background: var(--hover-bg);
+}
+
+.table thead th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  user-select: none;
+}
+
+.table tbody tr {
+  transition: background 0.2s ease;
+  cursor: default;
+}
+
+.table tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+.table tbody td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  vertical-align: middle;
+}
+
+.table tbody img {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* Responsive - horizontal scroll on small devices */
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .table thead, .table tbody, .table tr, .table th, .table td {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .table thead th {
+    min-width: 120px;
+  }
+
+  .table tbody td {
+    min-width: 120px;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .table thead th,
+[dir="rtl"] .table tbody td {
+  text-align: right;
+}
+
+[dir="rtl"] .tableContainer,
+[dir="rtl"] .table {
+  direction: rtl;
+}
+

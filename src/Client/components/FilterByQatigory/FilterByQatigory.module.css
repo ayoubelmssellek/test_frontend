@@ -1,0 +1,396 @@
+
+/* FilterByQatigory.module.css */
+.Food-display {
+    padding: 20px;
+    margin-top: 35px;
+
+}
+
+.HeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.BackButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: tomato;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(237, 141, 6, 0.1);
+}
+
+.BackButton:hover {
+    background: rgba(233,30,99,0.2);
+    transform: translateX(-5px);
+}
+
+.BackButton span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.QategoryName {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    font-weight: 700;
+}
+
+.Food-display-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.Cart {
+    width: 300px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.Cart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.ImageContainer {
+    position: relative;
+    height: 200px;
+}
+
+.ProductImage {
+    width: 100%;
+    height: 100%;
+}
+
+.FavoriteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.favoriteIcon {
+    color: #666;
+    transition: color 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.FavoriteButton.active .favoriteIcon {
+    color: #e91e63;
+}
+
+.FavoriteButton:hover .favoriteIcon {
+    color: #e91e63;
+}
+
+.ProductContent {
+    padding: 15px;
+    direction: rtl;
+}
+
+.ProductHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ProductTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+.PriceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.ProductPrice {
+    color: #e91e63;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.OldPrice {
+    color: #888;
+    font-size: 14px;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.InfoContainer {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ReviewsInfo,
+.FavoritesInfo {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.ReviewsInfo {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffa000;
+}
+
+.FavoritesInfo {
+    background: rgba(233, 30, 99, 0.1);
+    color: #e91e63;
+}
+
+.ProductFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    direction: ltr;
+}
+
+.CategoryTag {
+    background: #ffe8e8;
+    color: #e91e63;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ActionButtons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    direction: ltr;
+}
+
+.IconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ViewButton {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.ViewButton:hover {
+    background: #e0e0e0;
+}
+
+.CartButton {
+    background: tomato;
+    color: white;
+}
+
+.CartButton:hover {
+    background: #d81b60;
+}
+
+.QuantityControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+
+.QuantityButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.EmptyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.EmptyImage {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.EmptyText {
+    color: #666;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.OutOfStockOverlay {
+    position: relative;
+}
+
+.OutOfStockOverlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+.OutOfStock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+}
+.DisabledButton {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .HeaderContainer {
+        padding: 15px 20px;
+        margin: 15px 0;
+    }
+    
+    .QategoryName {
+        font-size: 1.5rem;
+    }
+    
+    .BackButton span {
+        display: none;
+    }
+    
+    .BackButton {
+        padding: 8px;
+    }
+    
+    .Cart {
+        width: 100%;
+        max-width: 400px;
+    }
+    .Food-display-list {
+        gap: 20px;
+        padding: 0 10px;
+    }
+}
+/* Add to your PopularDishes.module.css */
+.DiscountBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-5deg);
+  animation: pulse 2s infinite;
+}
+
+.DiscountBadge span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes pulse {
+  0% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(-5deg) scale(1.05); }
+  100% { transform: rotate(-5deg) scale(1); }
+}
+
+@media (max-width: 480px) {
+    .Food-display {
+        margin-top: 0px !important;
+        margin-bottom: 50px;
+    }
+    .Food-display-list {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .Cart {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .ProductTitle {
+        font-size: 1rem;
+    }
+    
+    .ProductPrice {
+        font-size: 1rem;
+    }
+    
+    .QuantityControls {
+        padding: 6px 12px;
+    }
+    
+    .ProductDescription {
+        font-size: 0.8rem;
+    }
+    
+    .CategoryTag {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+    .HeaderContainer{
+        padding: 5px 30px;
+    }
+}

@@ -1,0 +1,339 @@
+/* Employees.module.css */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --input-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --hover-bg: #f8f9fa;
+  --table-header-bg: #f8f9fa;
+  --accent-color: #235cff;
+  --success-color: #4CAF50;
+  --danger: #dc3545;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --bg-color: #07080a;
+  --text-color: #ffffff;
+  --input-bg: #000d15;
+  --border-color: #2d3748;
+  --hover-bg: #1a202c;
+  --table-header-bg: #1a202c;
+  --accent-color: #3b82f6;
+  --success-color: #22c55e;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.allBadges {
+  flex-grow: 1;
+  transition: margin-inline-start 0.3s ease;
+}
+
+.pushMainContent {
+  margin-inline-start: 175px;
+}
+
+.ml20 {
+  margin-inline-start: 50px;
+}
+
+.pages {
+  padding: 1.5rem;
+}
+
+.listEmployees {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+  appearance: none;
+  transition: all 0.2s ease;
+}
+
+[dir="rtl"] .filterSelect {
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+}
+
+.filterSelect:hover {
+  border-color: var(--accent-color);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%);
+}
+
+.selectIcon {
+  position: absolute;
+  inset-inline-end: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.clearButton {
+  background: var(--input-bg);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.clearButton:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.addEmployeeIcon {
+  gap: 8px;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s;
+  width: fit-content;
+  margin-block: 1rem;
+  display: block;
+}
+
+.productsTable {
+  width: 100%;
+  background: var(--input-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px var(--shadow-color);
+  table-layout: fixed; /* Ensures consistent column widths */
+}
+
+.productsTable th {
+  background-color: var(--table-header-bg);
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+  top: 0;
+  z-index: 2;
+  text-align: left;
+}
+
+.productsTable td {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.productsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.productsTable tr:hover td {
+  background-color: var(--hover-bg);
+}
+
+.countContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--input-bg);
+  border-radius: 8px;
+  padding: 0.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.countButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.countButton.decrement {
+  color: var(--danger);
+}
+
+.countButton.decrement:hover {
+  background-color: color-mix(in srgb, var(--danger) 10%);
+}
+
+.countButton.increment {
+  color: var(--success-color);
+}
+
+.countButton.increment:hover {
+  background-color: color-mix(in srgb, var(--success-color) 10%);
+}
+
+.countButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.countValue {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.menuActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.menuActions a {
+  display: inline-flex;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.menuActions a:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-color);
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.emptyState p {
+  color: color-mix(in srgb, var(--text-color) 70%);
+}
+
+@media (max-width: 768px) {
+  .pushMainContent {
+    margin-inline-start: 50px !important;
+  }
+
+  .productsTable {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .productsTable th,
+  .productsTable td {
+    padding: 1rem;
+    min-width: 150px;
+  }
+
+  .filtersContainer {
+    flex-direction: column;
+  }
+
+  .filterInput {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .clearButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .productsTable th,
+  .productsTable td {
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .countButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .menuActions {
+    flex-direction: column;
+  }
+}
+
+/* RTL Specific Fixes */
+[dir="rtl"] {
+  .productsTable {
+    direction: rtl;
+    width: 100%;
+  }
+
+  .productsTable th,
+  .productsTable td {
+    direction: ltr;
+    text-align: end; /* Logical property instead of right/left */
+  }
+
+  .productsTable tr {
+    display: table-row; /* Restore default table behavior */
+  }
+
+  .countContainer {
+    flex-direction: row-reverse;
+  }
+
+
+
+  .filterSelect {
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+  }
+
+  .menuActions {
+    flex-direction: row-reverse;
+  }
+}

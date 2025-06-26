@@ -1,0 +1,236 @@
+:root {
+  --bg-color: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --total-types: #235cff;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --edit-color: #10b981;
+  --delete-color: #ef4444;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --card-bg: #000d15;
+  --border-color: #374151;
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+  --total-types: rgb(249, 106, 106);
+  --overlay-color: rgba(0, 0, 0, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --edit-color: #34d399;
+  --delete-color: #f87171;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.pages {
+  min-height: 100vh;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.typesContainer {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.typesContainerPush {
+  margin-left: 175px;
+}
+
+.typesContainerNoPush {
+  margin-left: 50px;
+}
+
+/* Header Section */
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.typeCounter {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--total-types);
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.typeCounter:hover {
+  transform: translateY(-2px);
+}
+
+.counterIcon {
+  font-size: 1.2rem;
+}
+
+.counterNumber {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.counterText {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.addTypeBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addTypeBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Types Grid */
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.typeCard {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.typeCard:hover {
+  transform: translateY(-4px);
+}
+
+.typeTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.typeStatus {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: -0.4rem;
+}
+
+/* Action Buttons */
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.editBtn,
+.deleteBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.editBtn {
+  color: var(--edit-color);
+}
+
+.editBtn:hover {
+  transform: scale(1.1);
+}
+
+.deleteBtn {
+  color: var(--delete-color);
+}
+
+.deleteBtn:hover {
+  transform: scale(1.1);
+}
+
+/* RTL adjustments */
+[dir="rtl"] .typesContainerPush {
+  margin-right: 175px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .typesContainerNoPush {
+  margin-right: 50px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .headerSection {
+  flex-direction: row-reverse;
+}
+
+
+
+[dir="rtl"] .actions {
+  flex-direction: row-reverse;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .typesContainerPush {
+    margin-left: 80px;
+  }
+
+  [dir="rtl"] .typesContainerPush {
+    margin-right: 80px;
+  }
+
+  .headerSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pages {
+    padding: 1.5rem;
+  }
+
+  .typesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+}
