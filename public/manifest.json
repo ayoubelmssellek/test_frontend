@@ -3,12 +3,12 @@
   "name": "Restaurant Dakhla",
   "icons": [
     {
-      "src": "/test_frontend/src/Admin/assets/logo.jpg",
+      "src": "./logo.jpg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "/test_frontend/src/Admin/assets/headerimg2.jpg",
+      "src": "./logo.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
