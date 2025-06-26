@@ -27,7 +27,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000/api',
+        target: 'https://laravelapi-production-64b8.up.railway.app',
         changeOrigin: true,
         secure: false,
       },
