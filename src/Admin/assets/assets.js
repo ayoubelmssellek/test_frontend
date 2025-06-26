@@ -1,4 +1,4 @@
-import logo from './gustologo.jpg'
+import logo from './logo.jpg'
 export const assets = {
   logo
 }
